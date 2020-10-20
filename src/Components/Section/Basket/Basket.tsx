@@ -2,7 +2,7 @@ import React from 'react';
 function Basket() {
     return(
         <div >
-            <h1>hello it is me</h1>
+            <h1>Basket</h1>
         </div>
     )
 }
