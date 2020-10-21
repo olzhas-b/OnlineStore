@@ -15,9 +15,6 @@ class App extends Component{
                    <Section/>
                </Router>
            </DataProvider>
-            <div>
-            <h1>test1</h1>
-            </div>
         </div>
       )
     }
