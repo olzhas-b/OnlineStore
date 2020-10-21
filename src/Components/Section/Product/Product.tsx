@@ -2,6 +2,7 @@ import React, {Component, useContext} from 'react'
 import {Link} from 'react-router-dom'
 import '../../css/Product.css'
 import {DataContext} from "../../../Data/Context";
+
 function Product({...props}) {
     console.log(props)
     const context = useContext(DataContext);

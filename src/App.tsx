@@ -8,15 +8,13 @@ import {DataProvider} from "./Data/Context";
 class App extends Component{
     render() {
       return (
-        <div className="app">
-           <ThemeContextProvider>
-               <DataProvider>
+        <div className={"app"}>
+           <DataProvider>
                <Router>
                    <Header/>
                    <Section/>
                </Router>
-               </DataProvider>
-           </ThemeContextProvider>
+           </DataProvider>
         </div>
       )
     }

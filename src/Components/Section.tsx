@@ -8,8 +8,8 @@ import Details from "./Section/Details/Details"
 function Section() {
     return(
         <section>
-            <Route path="/" component={Home} exact />
-            <Route path="/product" component={Home} exact />
+            <Route path="/" component={Home} />
+            <Route path="/product" component={Home} />
             <Route path="/product/:id" component={Details} />
             <Route path="/basket" component={Basket} />
             <Route path="/login" component={Login} />

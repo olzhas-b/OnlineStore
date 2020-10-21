@@ -38,6 +38,36 @@ export class DataProvider extends Component {
                 count: 1,
                 category: 'electronics'
             },
+            {
+                _id: "2",
+                title: "Nike Shoes 21",
+                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
+                description: "UI/UX designing, html css tutorials",
+                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+                price: 23,
+                count: 1,
+                category: 'electronics'
+            },
+            {
+                _id: "2",
+                title: "Nike Shoes 21",
+                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
+                description: "UI/UX designing, html css tutorials",
+                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+                price: 23,
+                count: 1,
+                category: 'electronics'
+            },
+            {
+                _id: "2",
+                title: "Nike Shoes 21",
+                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
+                description: "UI/UX designing, html css tutorials",
+                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+                price: 23,
+                count: 1,
+                category: 'electronics'
+            },
 
         ],
         basket: [],
@@ -135,7 +165,7 @@ export class DataProvider extends Component {
         const {products, basket, total} = this.state;
         const {addBasket,reduction,increase,removeProduct,getTotal} = this;
         return (
-            <DataContext.Provider value={{products, basket, total, addBasket,reduction,increase,removeProduct,getTotal}}>>
+            <DataContext.Provider value={{products, basket, total, addBasket,reduction,increase,removeProduct,getTotal}}>
                 {this.props.children}
             </DataContext.Provider>
         )

@@ -1,7 +1,7 @@
 import React from 'react';
 function Details() {
     return(
-        <div >
+        <div>
             <h1>Details</h1>
         </div>
     )
