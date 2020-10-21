@@ -8,6 +8,7 @@ import Details from "./Section/Details/Details"
 import Product from "./Section/Product/Product"
 import About from "./Section/About/About";
 import Favorite from "./Section/Favorite/Favorite";
+import Contacts from './Section/Contacts/Contacts';
 function Section() {
     return(
         <section>
@@ -19,6 +20,7 @@ function Section() {
             <Route path="/login" component={Login} />
             <Route path="/favorite" component={Favorite} />
             <Route path="/registration" component={Registration} />
+            <Route path="/contact" component={Contacts} />
         </section>
     )
 }
