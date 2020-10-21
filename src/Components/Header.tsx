@@ -4,14 +4,12 @@ import {Link} from "react-router-dom";
 function Header() {
     return(
         <header>
-            <div className="menu">
-                <img src={'/'} alt="" width="20"/>
-            </div>
             <div className="logo">
                 <h1><Link to="/">Online Store</Link></h1>
             </div>
             <nav>
                 <ul>
+                    <li><button>white</button></li>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/product">Product</Link></li>
                     <li><Link to="/contact">Contact</Link></li>
@@ -21,7 +19,7 @@ function Header() {
                         <img src={'/'} alt="" width="20"/>
                     </li>
                 </ul>
-                <div className="nav-cart">
+                <div className="nav-basket">
                     {/*<span>{basket.length}</span>*/}
                     {/*<Link to="/basket">*/}
                     {/*    <img src={BasketIcon} alt="" width="20"/>*/}
