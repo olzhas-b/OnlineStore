@@ -1,33 +1,19 @@
 import React, {Component, createContext} from 'react';
-export interface theme {
-    isLightTheme: boolean,
-    light: {
-        color: string,
-        background: string
-    },
-    dark : {
-        color: string,
-        background: string
-    }
-}
-export const initialTheme : theme = {isLightTheme: true,
-    light: {color:'#555', background: '#eee'},
-    dark: {color: '#ddd', background: '#555'}
-};
+import {theme} from "../Interface/Interface";
+import {initialTheme} from "../Data/initialDATA";
+
 export const ThemeContext = createContext<theme>(initialTheme);
 
-class ThemeContextProvider extends Component {
-    state = {
-        isLightTheme: true,
-        light: {color:'#555', background: '#eee'},
-        dark: {color: '#ddd', background: '#555'}
-    };
+export class ThemeContextProvider extends Component {
+    state: theme = initialTheme;
     changeTheme = () => {
         this.setState({...this.state, isLightTheme: !this.state.isLightTheme});
     }
     render() {
+        const {isLightTheme, header_light, header_dark, section_dark, section_light} = this.state;
+        const {changeTheme} = this;
         return (
-            <ThemeContext.Provider value={{...this.state}}>
+            <ThemeContext.Provider value={{isLightTheme, header_light, header_dark, section_dark, section_light, changeTheme}}>
                 {this.props.children}
             </ThemeContext.Provider>
         );

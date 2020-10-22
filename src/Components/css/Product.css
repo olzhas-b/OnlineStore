@@ -11,7 +11,7 @@
     overflow: hidden;
     padding: 40px;
     box-shadow: 2px 8px 20px #ddd;
-    margin: 10px;
+    margin: 50px;
     transition: 0.5s linear;
 }
 .card:hover{

@@ -1,9 +1,7 @@
-import React from 'react';
-function Details() {
-    return(
-        <div>
-            <h1>Details</h1>
-        </div>
-    )
+import React, {Component} from 'react'
+
+export class Details extends Component {
+
 }
-export default Details;
+
+export default Details

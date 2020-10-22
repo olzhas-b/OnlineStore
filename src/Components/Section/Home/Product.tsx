@@ -1,7 +1,7 @@
-import React, {Component, useContext} from 'react'
+import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import '../../css/Product.css'
-import {DataContext} from "../../../Data/Context";
+import {DataContext} from "../../../Contexts/Context";
 
 function Product({...props}) {
     console.log(props)
@@ -18,7 +18,7 @@ function Product({...props}) {
                 <span>${props.product.price}</span>
                 <p>{props.product.description}</p>
                 <button className={"btn btn-success"} onClick={() => context.addBasket(props.product._id)}>Add to cart</button>
-                <button className={"btn btn-warning"}>favorite</button>
+                <button className={"btn btn-warning"} onClick={() => context.addFavorite(props.product._id)}>favorite</button>
             </div>
         </div>
     )
