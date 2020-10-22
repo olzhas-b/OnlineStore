@@ -1,11 +1,22 @@
 
-
+header {
+    color: red;
+}
 .header {
     overflow: hidden;
     background-color: #f1f1f1;
     padding: 10px 10px;
 }
+.toggle_language {
+    max-width: 80px;
+}
 
+.header .toggle_theme:hover {
+    background: none;
+}
+.count_basket {
+    color: dodgerblue;
+}
 .header li {
     float: left;
     color: black;

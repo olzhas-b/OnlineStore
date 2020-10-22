@@ -1,4 +1,3 @@
-
 export interface Product {
     _id: string,
     title: string,
@@ -23,34 +22,57 @@ export interface Data {
     products: Product[],
     basket: Basket[],
     favorite: string[],
-    total: 0
+    total: 0,
     addBasket: (arg0: string) => void,
+    addFavorite: (arg0: string) => void,
     reduction: (arg0: string) => void,
     increase: (arg0: string) => void,
     removeProduct: (arg0: string) => void,
     getTotal: () => void;
 }
 
-export const initialData: Data = {
-        products: [
-            {
-                _id: "",
-                title: "",
-                src: "",
-                description: "",
-                content: "",
-                price: 0,
-                count: 1,
-                category: '1'
-            }
-        ],
-        basket: [],
-        favorite: [],
-        total: 0,
-        addBasket:  (id: string) => {},
-        reduction:   () => {},
-        increase: arg0 => {},
-        removeProduct: arg0 => {},
-        getTotal: () => {},
+
+export interface theme {
+    isLightTheme: boolean,
+    header_light: {
+        color: string,
+        background: string
+    },
+    header_dark : {
+        color: string,
+        background: string
+    },
+    section_light: {
+        color: string,
+        background: string
+    },
+    section_dark : {
+        color: string,
+        background: string
+    },
+    changeTheme: () => void,
+}
+
+
+
+export interface LANGUAGE {
+    isEN: boolean,
+    ru: {
+        title: string,
+        home: string,
+        contact: string,
+        about: string,
+        favorite: string,
+        log_reg: string
+    },
+    en: {
+        title: string,
+        home: string,
+        contact: string,
+        about: string,
+        favorite: string,
+        log_reg: string
+    },
+    changeLanguage: () => void
 }
 

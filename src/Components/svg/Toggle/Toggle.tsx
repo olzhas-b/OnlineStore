@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Toggle.css';
+import '../../css/Toggle.css';
 function Toggle() {
     return(
         <label>

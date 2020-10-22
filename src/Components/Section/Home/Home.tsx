@@ -1,12 +1,12 @@
-import React, {Component, useContext} from 'react'
-import {Link} from 'react-router-dom'
-import {DataContext} from "../../../Data/Context";
-import {Data, Product as PRODUCT} from "../../../Interface/Interface";
-import Product from '../Product/Product'
+import React, {Component} from 'react'
+import {DataContext} from "../../../Contexts/Context";
+import {Product as PRODUCT} from "../../../Interface/Interface";
+import Product from './Product'
+
 export class Home extends Component {
     static contextType = DataContext;
     render() {
-        const {products, addBasket} = this.context;
+        const {products} = this.context;
         return (
             <div id="product">
                 {

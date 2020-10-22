@@ -1,103 +1,38 @@
 import React, { Component } from 'react'
-import {Data, Product, Basket, initialData} from "../Interface/Interface";
+import {Data} from "../Interface/Interface";
+import {initialData} from "../Data/initialDATA";
 
 
 export const DataContext = React.createContext<Data | any>(initialData);
 
 export class DataProvider extends Component {
 
-    state: Data  = {
-        products: [
-            {
-                _id: "0",
-                title: "Nike Shoes 21",
-                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-                description: "UI/UX designing, html css tutorials",
-                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-                price: 23,
-                count: 1,
-                category: 'electronics'
-            },
-            {
-                _id: "1",
-                title: "Nike Shoes 21",
-                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-                description: "UI/UX designing, html css tutorials",
-                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-                price: 23,
-                count: 1,
-                category: 'electronics'
-            },
-            {
-                _id: "2",
-                title: "Nike Shoes 21",
-                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-                description: "UI/UX designing, html css tutorials",
-                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-                price: 23,
-                count: 1,
-                category: 'electronics'
-            },
-            {
-                _id: "2",
-                title: "Nike Shoes 21",
-                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-                description: "UI/UX designing, html css tutorials",
-                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-                price: 23,
-                count: 1,
-                category: 'electronics'
-            },
-            {
-                _id: "2",
-                title: "Nike Shoes 21",
-                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-                description: "UI/UX designing, html css tutorials",
-                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-                price: 23,
-                count: 1,
-                category: 'electronics'
-            },
-            {
-                _id: "2",
-                title: "Nike Shoes 21",
-                src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
-                description: "UI/UX designing, html css tutorials",
-                content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-                price: 23,
-                count: 1,
-                category: 'electronics'
-            },
-
-        ],
-        basket: [],
-        favorite: [],
-        total: 0,
-        addBasket: () => {},
-        reduction: () => {},
-        increase:  () => {},
-        removeProduct: () => {},
-        getTotal: () => {}
-    };
+    state: Data  = initialData;
      addFavorite = (id: string) => {
         const{products, favorite} = this.state;
-        this.setState({favorite: favorite.concat(id)});
+        const check = favorite.every(_id => {
+            return _id !== id
+        })
+         if(check) {
+             this.setState({favorite: favorite.concat(id)});
+         } else {
+             alert("The product has been added to favorite.")
+         }
+
      }
      addBasket = (id: string) => {
-         console.log(id)
         const {products, basket} = this.state;
-        //  const check = basket.every(item =>{
-        //      return item._id !== id
-        //  })
-        // if(check){
+         const check = basket.every(item =>{
+             return item._id !== id
+         })
+         if(check === true){
             const data = products.filter(product =>{
                 return product._id === id
             })
             this.setState({basket: basket.concat(data)})
-        // } else{
-        //     alert("The product has been added to cart.")
-        // }
-       // console.log(this.state)
+        } else{
+            alert("The product has been added to basket.")
+        }
     };
 
     reduction = (id: string) => {
@@ -145,14 +80,14 @@ export class DataProvider extends Component {
     };
 
     componentDidUpdate(){
-        localStorage.setItem('dataCart', JSON.stringify(this.state.basket))
+        localStorage.setItem('dataBasket', JSON.stringify(this.state.basket))
         localStorage.setItem('dataTotal', JSON.stringify(this.state.total))
     };
 
     componentDidMount(){
         const dataBasket = JSON.parse(localStorage.getItem('dataBasket') as string);
         if(dataBasket !== null){
-            this.setState({cart: dataBasket});
+            this.setState({basket: dataBasket});
         }
         const dataTotal = JSON.parse(localStorage.getItem('dataTotal') as string);
         if(dataTotal !== null){
@@ -163,9 +98,9 @@ export class DataProvider extends Component {
 
     render() {
         const {products, basket, total} = this.state;
-        const {addBasket,reduction,increase,removeProduct,getTotal} = this;
+        const {addBasket,reduction,increase,removeProduct,getTotal, addFavorite} = this;
         return (
-            <DataContext.Provider value={{products, basket, total, addBasket,reduction,increase,removeProduct,getTotal}}>
+            <DataContext.Provider value={{products, basket, total, addBasket, addFavorite, reduction,increase,removeProduct,getTotal}}>
                 {this.props.children}
             </DataContext.Provider>
         )
