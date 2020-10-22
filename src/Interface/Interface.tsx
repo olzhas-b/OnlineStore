@@ -18,6 +18,17 @@ export interface Basket {
     price: number,
     count: number
 }
+export interface User {
+    id: number;
+    name: string;
+    email: string;
+    password: string;
+  }
+export interface Users {
+    users: User[],
+    loginUser:(user:User)=>false,
+    addUser:(user:User)=>void
+}
 export interface Data {
     products: Product[],
     basket: Basket[],

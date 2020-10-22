@@ -1,4 +1,5 @@
-import {Data, LANGUAGE, theme} from "../Interface/Interface";
+import { rootCertificates } from "tls";
+import {Data, LANGUAGE, theme, Users} from "../Interface/Interface";
 
 export const initialData: Data = {
     products: [
@@ -74,6 +75,13 @@ export const initialData: Data = {
     removeProduct: () => {},
     getTotal: () => {}
 };
+export const initialUsers : Users = {
+    users: [
+        {"id":0,"email":"root@root.kz","name":"root","password":"Root2020"}
+    ],
+    addUser: () => {},
+    loginUser: ()=> {return false}
+}
 export const initialTheme : theme = {
     isLightTheme: true,
     header_light: {color:'#555', background: '#eee'},

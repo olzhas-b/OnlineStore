@@ -7,12 +7,15 @@ import Section from "./Components/Section"
 import {DataProvider} from "./Contexts/Context";
 import Footer from "./Components/Footer";
 import LanguageContextProvider from "./Contexts/LanguageContext";
+import { UserProvider } from './Contexts/UserContext';
 class App extends Component{
     render() {
       return (
         <div className={"app"}>
             <ThemeContextProvider>
                <DataProvider>
+                   <UserProvider>
+                    
                    <Router>
                        <LanguageContextProvider>
                            <Header/>
@@ -20,6 +23,8 @@ class App extends Component{
                        <Section/>
                        <Footer/>
                    </Router>
+                   
+                   </UserProvider>
                </DataProvider>
             </ThemeContextProvider>
         </div>

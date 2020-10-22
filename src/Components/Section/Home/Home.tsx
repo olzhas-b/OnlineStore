@@ -11,7 +11,7 @@ export class Home extends Component {
             <div id="product">
                 {
                     products.map((product: PRODUCT) =>(
-                        <Product product={product}> </Product>
+                        <Product product={product} key={product._id}> </Product>
                         ))
                 }
             </div>
