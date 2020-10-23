@@ -25,7 +25,7 @@ export class DataProvider extends Component {
          const check = basket.every(item =>{
              return item._id !== id
          })
-         if(check === true){
+         if(check){
             const data = products.filter(product =>{
                 return product._id === id
             })

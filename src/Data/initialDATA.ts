@@ -11,7 +11,7 @@ export const initialData: Data = {
             content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
             price: 23,
             count: 1,
-            category: 'electronics',
+            category: 'phone',
             color: 'red',
             banner: 'рассрочка'
         },

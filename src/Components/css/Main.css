@@ -9,3 +9,12 @@
     margin: auto;
     max-width: 1140px;
 }
+.dontfind {
+    padding-top: 50px;
+    font-size: 50px;
+    text-align: center;
+}
+.items {
+    margin:50px;
+    margin-top: 50px
+}

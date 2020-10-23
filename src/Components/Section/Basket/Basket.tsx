@@ -7,16 +7,11 @@ import Item from "./Item";
 function Basket() {
     const context = useContext(DataContext);
     const {basket,increase,reduction,removeProduct,total, getTotal} = context;
-    useEffect(() => {
-        getTotal();
-        console.log("it is effect")
-    }, [basket]);
-    console.log(basket)
+
     if(basket.length === 0){
         return <h2 style={{textAlign:"center"}}>Your Basket is empty </h2>
     }else{
         return (
-
             <div className={"top"}>
                 {
                     basket.map( (item: Product) =>(<Item item={item}/>))
