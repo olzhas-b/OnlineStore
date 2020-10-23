@@ -1,9 +1,10 @@
-import React, {Component, useContext, useEffect, useRef, useState} from 'react'
+import React from 'react';
 import {DataContext} from "../../../Contexts/Context";
 import {Product as PRODUCT} from "../../../Interface/Interface";
 import Product from './Product'
 import Slider from "./Slider";
 import '../../css/Main.css'
+import {useContext, useRef, useState} from "react";
 interface KeyboardEvent {
     code: string;
 }

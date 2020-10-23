@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {DataContext} from "../../../Contexts/Context";
-import {Product, Detail} from '../../../Interface/Interface'
+import {Product as PRODUCT, Detail} from '../../../Interface/Interface'
 import {Comment} from '../CommentForm/Comment'
 import {detail} from '../../../Data/initialDATA'
 import {likeCountHOC} from './LikeCountHOC'
@@ -8,61 +8,42 @@ import LikeArea from './LikeArea'
 
 const Wrapped2 = likeCountHOC()(LikeArea);
 
-export class Details extends Component {
-    static contextType = DataContext;
-
-    state : Detail = detail;
-
-    getId = () => {
+export function Details() {
+    const context = useContext(DataContext);
+    const {products} = useContext(DataContext);
+    const [output, setOutput] = useState(detail);
+    const [id, setId] = useState('');
+    useEffect(() => {
         let param = window.location.pathname.split('/');
         let id = param[param.length - 1];
         id = id.split('').reverse().join('');
-        this.setState({id: id});
-    }
-    componentDidMount(){
-        this.getId();
-        this.getProduct()
-    }
-    getProduct = () => {
-        const res = this.context.products;
-        const data = res.filter( (item: Product) =>{
-            return item._id === this.state.id
-        })
-        console.log(data);
-        this.setState({...this.state, product: data});
-
-    };
-    render() {
-        const {product} = this.state;
-        return (
-            <>
-                <div>
-                    <Wrapped2 style={{ padding: 20, background: "palegreen" }} />
+        for (let i = 0; i < products.length; i++) {
+            if(id === products[i]._id) {
+                setOutput( {id: output.id, product: products[i]})
+            }
+        }
+    },[])
+    return (
+        <>
+            <div>
+                <Wrapped2 style={{ padding: 20, background: "palegreen" }} />
+            </div>
+            <div className="container mt-4" key={output.product._id}>
+                <img src={output.product.src}  alt="good"/>
+                <div className="box">
+                    <div className="row">
+                        <h2>{output.product.title}</h2>
+                        <span className="ml-2">${output.product.price}</span>
+                    </div>
+                    <p>{output.product.description}</p>
+                    <p>{output.product.content}</p>
                 </div>
+            </div>
+            <Comment />
 
-                {
-                    product.map((item: Product) => (
-
-                            <div className="container mt-4" key={item._id}>
-                                <img src={item.src}  alt="good"/>
-                                <div className="box">
-                                    <div className="row">
-                                        <h2>{item.title}</h2>
-                                        <span className="ml-2">${item.price}</span>
-                                    </div>
-                                    <p>{item.description}</p>
-                                    <p>{item.content}</p>
-                                </div>
-                            </div>
-
-                        )
-                    )
-                }
-                <Comment />
-
-            </>
-        )
-    }
+        </>
+    )
 }
 
 export default Details
+

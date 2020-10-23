@@ -132,6 +132,6 @@ export interface ITodo {
 
 export interface Detail {
     id: string,
-    product: Product[]
+    product: Product
 }
 
