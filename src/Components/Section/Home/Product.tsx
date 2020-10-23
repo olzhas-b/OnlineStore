@@ -8,7 +8,13 @@ function Product({...props}) {
     return (
         <div className="card" key={props.product._id}>
             <Link to={`/product/${props.product._id}`}>
-                <img src={props.product.src} alt=""/>
+                <div className="container">
+                    <img src={props.product.src}/>
+                    <div className="text-block" style={{background: props.product.color}}>
+                        {props.product.banner}
+                    </div>
+                </div>
+
             </Link>
             <div className="content">
                 <h3>

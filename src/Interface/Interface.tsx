@@ -6,8 +6,9 @@ export interface Product {
     content: string,
     price: number,
     count: number,
-    category: string
-
+    category: string,
+    color: string,
+    banner: string
 }
 export interface Basket {
     _id: string,
@@ -16,7 +17,10 @@ export interface Basket {
     description: string,
     content: string,
     price: number,
-    count: number
+    count: number,
+    category: string,
+    color: string,
+    banner: string
 }
 export interface User {
     id: number;

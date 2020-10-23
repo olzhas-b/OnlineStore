@@ -11,7 +11,9 @@ export const initialData: Data = {
             content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
             price: 23,
             count: 1,
-            category: 'electronics'
+            category: 'electronics',
+            color: 'red',
+            banner: 'рассрочка'
         },
         {
             _id: "1",
@@ -21,7 +23,9 @@ export const initialData: Data = {
             content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
             price: 23,
             count: 1,
-            category: 'electronics'
+            category: 'electronics',
+            color: '#ffeb3b',
+            banner: 'распродажа'
         },
         {
             _id: "2",
@@ -31,7 +35,9 @@ export const initialData: Data = {
             content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
             price: 23,
             count: 1,
-            category: 'electronics'
+            category: 'electronics',
+            color: '#b2ff59',
+            banner: 'скидка'
         },
         {
             _id: "3",
@@ -41,7 +47,9 @@ export const initialData: Data = {
             content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
             price: 23,
             count: 1,
-            category: 'electronics'
+            category: 'electronics',
+            color: 'red',
+            banner: 'рассрочка'
         },
         {
             _id: "4",
@@ -51,7 +59,9 @@ export const initialData: Data = {
             content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
             price: 23,
             count: 1,
-            category: 'electronics'
+            category: 'electronics',
+            color: 'red',
+            banner: 'рассрочка'
         },
         {
             _id: "5",
@@ -61,8 +71,46 @@ export const initialData: Data = {
             content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
             price: 23,
             count: 1,
-            category: 'electronics'
+            category: 'electronics',
+            color: '#b2ff59',
+            banner: 'скидка'
         },
+        {
+            _id: "6",
+            title: "Nike Shoes 21",
+            src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
+            description: "UI/UX designing, html css tutorials",
+            content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+            price: 23,
+            count: 1,
+            category: 'electronics',
+            color: '#b2ff59',
+            banner: 'скидка'
+        },
+        {
+            _id: "7",
+            title: "Nike Shoes 21",
+            src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
+            description: "UI/UX designing, html css tutorials",
+            content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+            price: 23,
+            count: 1,
+            category: 'electronics',
+            color: '#b2ff59',
+            banner: 'скидка'
+        },
+        {
+            _id: "8",
+            title: "Nike Shoes 21",
+            src: "https://www.upsieutoc.com/images/2020/06/27/img1.jpg",
+            description: "UI/UX designing, html css tutorials",
+            content: "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
+            price: 23,
+            count: 1,
+            category: 'electronics',
+            color: '#e040fb',
+            banner: 'новый'
+        }
 
     ],
     basket: [],
@@ -123,6 +171,8 @@ export const detail = {
         content: '',
         price: 1,
         count: 1,
-        category: ''
+        category: '',
+        color: '',
+        banner: ''
     }]
 }

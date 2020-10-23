@@ -79,21 +79,21 @@ export class DataProvider extends Component {
         this.setState({total: res})
     };
 
-    componentDidUpdate(){
-        localStorage.setItem('dataBasket', JSON.stringify(this.state.basket))
-        localStorage.setItem('dataTotal', JSON.stringify(this.state.total))
-    };
-
-    componentDidMount(){
-        const dataBasket = JSON.parse(localStorage.getItem('dataBasket') as string);
-        if(dataBasket !== null){
-            this.setState({basket: dataBasket});
-        }
-        const dataTotal = JSON.parse(localStorage.getItem('dataTotal') as string);
-        if(dataTotal !== null){
-            this.setState({total: dataTotal});
-        }
-    }
+    // componentDidUpdate(){
+    //     localStorage.setItem('dataBasket', JSON.stringify(this.state.basket))
+    //     localStorage.setItem('dataTotal', JSON.stringify(this.state.total))
+    // };
+    //
+    // componentDidMount(){
+    //     const dataBasket = JSON.parse(localStorage.getItem('dataBasket') as string);
+    //     if(dataBasket !== null){
+    //         this.setState({basket: dataBasket});
+    //     }
+    //     const dataTotal = JSON.parse(localStorage.getItem('dataTotal') as string);
+    //     if(dataTotal !== null){
+    //         this.setState({total: dataTotal});
+    //     }
+    // }
 
 
     render() {

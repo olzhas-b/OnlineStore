@@ -13,10 +13,10 @@ function Item({...props}) {
         <div className="details basket" key={props.item._id}>
             <Link to={`/product/${props.item._id}`}>
 
-                <div className="container">
+                <div className="container" >
                     <img src={props.item.src}/>
-                    <div className="text-block">
-                        рассрочка
+                    <div className="text-block" style={{background: props.item.color}}>
+                        {props.item.banner}
                     </div>
                 </div>
 
