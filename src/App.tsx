@@ -8,6 +8,7 @@ import {DataProvider} from "./Contexts/Context";
 import Footer from "./Components/Footer";
 import LanguageContextProvider from "./Contexts/LanguageContext";
 import { UserProvider } from './Contexts/UserContext';
+import CurrencyContextProvider from './Contexts/CurrencyContext';
 class App extends Component{
     render() {
       return (
@@ -15,6 +16,9 @@ class App extends Component{
             <ThemeContextProvider>
                <DataProvider>
                    <UserProvider>
+                   <CurrencyContextProvider>
+                         
+                   
                     
                    <Router>
                        <LanguageContextProvider>
@@ -23,7 +27,7 @@ class App extends Component{
                        <Section/>
                        <Footer/>
                    </Router>
-                   
+                   </CurrencyContextProvider>
                    </UserProvider>
                </DataProvider>
             </ThemeContextProvider>

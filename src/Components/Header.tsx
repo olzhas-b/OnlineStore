@@ -6,11 +6,15 @@ import basketIcon from "./svg/basketIcon.svg";
 import Toggle from "./svg/Toggle/Toggle";
 import {ThemeContext} from "../Contexts/ThemeContext";
 import {languageContext} from "../Contexts/LanguageContext";
+import {currencyContext} from "../Contexts/CurrencyContext";
+
 
 function Header() {
     const  context  = useContext(DataContext);
     const lanContext = useContext(languageContext)
     const themeContext = useContext(ThemeContext);
+    const curContext = useContext(currencyContext)
+
     return(
         <header className={"header"} style={themeContext.isLightTheme ? themeContext.header_light : themeContext.header_dark}>
             <div className={"logo"}>
@@ -18,6 +22,7 @@ function Header() {
             </div>
             <nav className={"header-right"}>
                 <ul>
+                    <li><button className={"toggle_currency"} onClick={curContext.changeCurrency}>{curContext.isUSD ? 'Tenge' : 'USD'}</button></li>
                     <li><button className={"toggle_language"} onClick={lanContext.changeLanguage}>{lanContext.isEN ? 'RU' : 'EN'}</button></li>
                     <li className={"toggle_theme"} onMouseDown={themeContext.changeTheme}>
                         <Toggle/>

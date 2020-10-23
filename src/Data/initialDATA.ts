@@ -1,5 +1,5 @@
 import { rootCertificates } from "tls";
-import {Data, LANGUAGE, theme, Users} from "../Interface/Interface";
+import {Data, LANGUAGE, theme, Currency, Users} from "../Interface/Interface";
 
 export const initialData: Data = {
     products: [
@@ -159,6 +159,21 @@ export const initialLanguage: LANGUAGE = {
         log_reg: 'Login/Registration',
     },
     changeLanguage: () => {}
+};
+
+export const initialCurrency: Currency = {
+    isUSD: true,
+    tg: {
+        title: 'Tenge',
+        symbol: '₸ ',
+
+    },
+    usd: {
+        title: 'USD',
+        symbol: '$ ',
+
+    },
+    changeCurrency: () => {}
 };
 
 export const detail = {

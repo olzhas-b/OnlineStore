@@ -91,6 +91,21 @@ export interface LANGUAGE {
     changeLanguage: () => void
 }
 
+export interface Currency {
+    isUSD: boolean,
+    tg: {
+        title: string,
+        symbol: string
+
+    },
+    usd: {
+        title: string,
+        symbol: string
+    },
+    changeCurrency: () => void
+}
+
+
 export interface ITodo {
     title: string,
     id: number,
