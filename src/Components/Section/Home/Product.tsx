@@ -4,7 +4,6 @@ import '../../css/Product.css'
 import {DataContext} from "../../../Contexts/Context";
 
 function Product({...props}) {
-    console.log(props)
     const context = useContext(DataContext);
     return (
         <div className="card" key={props.product._id}>

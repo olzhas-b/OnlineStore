@@ -1,13 +1,16 @@
+
+
 section .basket{
     position: relative;
     padding-left: 10px;
-    margin: 20px 150px 20px 150px;
+    margin: 0px 150px 20px 150px;
     border: 3px solid #ccc;
+    border-radius: 20px;
     background: white;
 }
 .amount span{
     color: orangered;
-    padding: 0 20px;
+    padding: 0 40px;
 }
 .amount .count{
     width: 40px;
@@ -55,11 +58,11 @@ section .basket{
     height: 300px;
     display: block;
     object-fit: cover;
-    margin: 25px;
+    margin: 30px;
 }
 .details .box{
     max-width: 500px;
-    min-width: 290px;
+    min-width: 50px;
     margin: 25px;
 }
 .box .row{
@@ -92,4 +95,24 @@ section .basket{
     text-decoration: none;
     padding: 10px 25px;
     display: inline-block;
+}
+
+.container {
+    position: relative;
+}
+
+/* Bottom right text */
+.text-block {
+    position: absolute;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+    top: 0px;
+    left: 0px;
+    background-color: red;
+    color: white;
+    padding-left: 0px;
+    padding-top: 0px;
+    min-width: 200px;
+    text-align: center;
 }
