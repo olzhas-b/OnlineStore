@@ -22,6 +22,18 @@ export interface Basket {
     color: string,
     banner: string
 }
+export interface Favorite {
+    _id: string,
+    title: string,
+    src: string,
+    description: string,
+    content: string,
+    price: number,
+    count: number,
+    category: string,
+    color: string,
+    banner: string
+}
 export interface User {
     id: number;
     name: string;
@@ -36,10 +48,11 @@ export interface Users {
 export interface Data {
     products: Product[],
     basket: Basket[],
-    favorite: string[],
+    favorite: Favorite[],
     total: 0,
     addBasket: (arg0: string) => void,
     addFavorite: (arg0: string) => void,
+    removeFavorite: (arg0: string) => void,
     reduction: (arg0: string) => void,
     increase: (arg0: string) => void,
     removeProduct: (arg0: string) => void,

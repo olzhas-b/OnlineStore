@@ -9,16 +9,18 @@ export class DataProvider extends Component {
 
     state: Data  = initialData;
      addFavorite = (id: string) => {
-        const{products, favorite} = this.state;
-        const check = favorite.every(_id => {
-            return _id !== id
-        })
-         if(check) {
-             this.setState({favorite: favorite.concat(id)});
-         } else {
-             alert("The product has been added to favorite.")
+         const {products, favorite} = this.state;
+         const check = favorite.every(item =>{
+             return item._id !== id
+         })
+         if(check){
+             const data = products.filter(product =>{
+                 return product._id === id
+             })
+             this.setState({favorite: favorite.concat(data)})
+         } else{
+             alert("The product has been added to Favorite.")
          }
-
      }
      addBasket = (id: string) => {
         const {products, basket} = this.state;
@@ -78,6 +80,18 @@ export class DataProvider extends Component {
         }, 0)
         this.setState({total: res})
     };
+    removeFavorite = (id: string) => {
+        if(window.confirm("Do you want to delete this product?")){
+            const {favorite} = this.state;
+            favorite.forEach((item, index) =>{
+                if(item._id === id){
+                    favorite.splice(index, 1)
+                }
+            })
+            this.setState({favorite: favorite});
+            this.getTotal();
+        }
+    }
 
     // componentDidUpdate(){
     //     localStorage.setItem('dataBasket', JSON.stringify(this.state.basket))
@@ -97,10 +111,10 @@ export class DataProvider extends Component {
 
 
     render() {
-        const {products, basket, total} = this.state;
-        const {addBasket,reduction,increase,removeProduct,getTotal, addFavorite} = this;
+        const {products, basket, total, favorite} = this.state;
+        const {addBasket,reduction,increase,removeProduct, removeFavorite,getTotal, addFavorite} = this;
         return (
-            <DataContext.Provider value={{products, basket, total, addBasket, addFavorite, reduction,increase,removeProduct,getTotal}}>
+            <DataContext.Provider value={{removeFavorite, products, basket, total,favorite, addBasket, addFavorite, reduction,increase,removeProduct,getTotal}}>
                 {this.props.children}
             </DataContext.Provider>
         )

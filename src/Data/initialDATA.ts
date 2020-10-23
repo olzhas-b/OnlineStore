@@ -121,6 +121,7 @@ export const initialData: Data = {
     reduction: () => {},
     increase:  () => {},
     removeProduct: () => {},
+    removeFavorite: () => {},
     getTotal: () => {}
 };
 export const initialUsers : Users = {
