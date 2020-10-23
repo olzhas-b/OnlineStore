@@ -16,10 +16,13 @@ function Home() {
     const {products} = context;
     const [result, setResult] = useState(context.products);
     const [input, setInput] = useState<string>('');
-    const handleClick = (e: React.KeyboardEvent) => {
+    const handlePressKey = (e: React.KeyboardEvent) => {
         console.log(result)
         if(e.key === 'Enter') {
-            if(input.length === 0) {
+            if(ref.current!.value === '') {
+                setResult(products)
+            }
+            else if(input.length === 0) {
                 setResult([]);
             } else {
                 var data: PRODUCT[] = []
@@ -37,7 +40,7 @@ function Home() {
                     const str1 = products[i].category.toLowerCase();
                     const str2 = ref.current!.value.toLowerCase();
                     const mn = Math.min(str1.length, str2.length)
-                    if (check.has(products[i].id) === false && str2.slice(0, mn) === str1.toLowerCase().slice(0, mn)) {
+                    if (!check.has(products[i].id) && str2.slice(0, mn) === str1.toLowerCase().slice(0, mn)) {
                         data.push(products[i]);
                         check.set(products[i]._id, true);
                     }
@@ -53,7 +56,7 @@ function Home() {
                 <Slider/>
             </div>
             <div className={"Search"}>
-                <input ref={ref} onChange={event => setInput(event.target.value)} onKeyPress={(event) => handleClick(event)} className="form-control form-control-lg" type="text" placeholder="Search"/>
+                <input ref={ref} onChange={event => setInput(event.target.value)} onKeyPress={(event) => handlePressKey(event)} className="form-control form-control-lg" type="text" placeholder="Search"/>
             </div>
             <div className={"items"}>
                 { (result === null || result.length === 0) ?  <div className={"dontfind"}>We don't find product or category</div> :
