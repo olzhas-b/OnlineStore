@@ -87,3 +87,14 @@ export interface LANGUAGE {
     changeLanguage: () => void
 }
 
+export interface ITodo {
+    title: string,
+    id: number,
+    completed: boolean
+  }
+
+export interface Detail {
+    id: string,
+    product: Product[]
+}
+

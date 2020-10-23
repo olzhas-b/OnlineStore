@@ -112,3 +112,17 @@ export const initialLanguage: LANGUAGE = {
     },
     changeLanguage: () => {}
 };
+
+export const detail = {
+    id: '0',
+    product: [{
+        _id: '',
+        title: '',
+        src: '',
+        description: '',
+        content: '',
+        price: 1,
+        count: 1,
+        category: ''
+    }]
+}
