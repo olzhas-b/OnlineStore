@@ -32,7 +32,7 @@ function Header() {
                     <li><Link to="/about">{lanContext.isEN ? lanContext.en.about : lanContext.ru.about}</Link></li>
                     <li><Link to="/favorite">{lanContext.isEN ? lanContext.en.favorite : lanContext.ru.favorite}</Link></li>
                     <li><Link to="/login">{lanContext.isEN ? lanContext.en.log_reg : lanContext.ru.log_reg}</Link></li>
-                    <li className="close"> <img src={'/'} alt="" width="20"/> </li>
+                    <li><Link to="/Profile">{lanContext.isEN ? lanContext.en.profile : lanContext.ru.profile}</Link></li>
                     <li>
                         <div className={"nav-cart"}>
                             <span className={"count_basket"}>{context.basket.length}</span>

@@ -129,7 +129,10 @@ export const initialUsers : Users = {
         {"id":0,"email":"root@root.kz","name":"root","password":"Root2020"}
     ],
     addUser: () => {},
-    loginUser: ()=> {return false}
+    loginUser: ()=> {return false},
+    isUser: ()=>{return {"id":-1,"email":"","name":"","password":""}},
+    editUser:()=>{return false},
+    idAuth: -1
 }
 export const initialTheme : theme = {
     isLightTheme: true,
@@ -150,6 +153,7 @@ export const initialLanguage: LANGUAGE = {
         about: 'О Нас',
         favorite: 'Избранное',
         log_reg: 'Логин/Регистрация',
+        profile: 'Профиль'
     },
     en: {
         title: 'EN',
@@ -158,6 +162,7 @@ export const initialLanguage: LANGUAGE = {
         about: 'About',
         favorite: 'Favorite',
         log_reg: 'Login/Registration',
+        profile: 'Profile'
     },
     changeLanguage: () => {}
 };
@@ -192,3 +197,5 @@ export const detail = {
         banner: ''
     }]
 }
+export const emailRex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+).([a-zA-Z]{2,5})$/;
+export const passRex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;

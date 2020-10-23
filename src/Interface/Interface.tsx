@@ -42,8 +42,11 @@ export interface User {
   }
 export interface Users {
     users: User[],
+    idAuth: number,
     loginUser:(user:User)=>false,
-    addUser:(user:User)=>void
+    addUser:(user:User)=>void,
+    isUser:()=>User,
+    editUser:(user:User,pass:string,name:string)=>boolean
 }
 export interface Data {
     products: Product[],
@@ -91,7 +94,8 @@ export interface LANGUAGE {
         contact: string,
         about: string,
         favorite: string,
-        log_reg: string
+        log_reg: string,
+        profile: string
     },
     en: {
         title: string,
@@ -99,7 +103,8 @@ export interface LANGUAGE {
         contact: string,
         about: string,
         favorite: string,
-        log_reg: string
+        log_reg: string,
+        profile: string
     },
     changeLanguage: () => void
 }

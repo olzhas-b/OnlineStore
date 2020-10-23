@@ -2,9 +2,8 @@ import React, { useRef, useEffect,useContext,useState } from 'react';
 import { User } from '../../../Interface/Interface'
 import {Link, Redirect} from "react-router-dom";
 import {UserContext} from "../../../Contexts/UserContext";
+import {emailRex,passRex} from '../../../Data/initialDATA'
 
-const emailRE = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+).([a-zA-Z]{2,5})$/;
-const passRE = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 function Login() {
     const context = useContext(UserContext)
     let user: User = { email: "", id: 0, password: "", name: "" }
@@ -21,13 +20,13 @@ function Login() {
     const PressHandler = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
         
-        if (!emailRE.test(user.email)) {
+        if (!emailRex.test(user.email)) {
             alert("Please enter a valid email address");
             console.log('Error');
             email.current?.focus();
             email.current!.value = '';
         }
-        else if(!passRE.test(user.password)) {
+        else if(!passRex.test(user.password)) {
             alert("Please enter a valid password");
             console.log('Error');
             pass.current!.value = '';

@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import {User,Users} from '../Interface/Interface'
-import  { Redirect } from 'react-router-dom'
 import {initialUsers} from "../Data/initialDATA";
 
 
 export const UserContext = React.createContext<Users | any>(initialUsers);
+
 export class UserProvider extends Component {
 
     state: Users  = initialUsers;
@@ -17,7 +17,7 @@ export class UserProvider extends Component {
               return;
             }
             newUser.id = users.length + 1;
-            this.setState({users: users.concat(newUser)})
+            this.setState({users: users.concat(newUser),idAuth:newUser.id})
           }
     }
     loginUser = (user: User) => {
@@ -28,7 +28,10 @@ export class UserProvider extends Component {
             (u) => u.email === user.email && u.password === user.password
           );
           if (checker) {
-              console.log('true')
+            const data = users.filter(u =>{
+                return u.email === user.email
+            })[0]
+            this.setState({idAuth:data.id})
             return true
           }
           else 
@@ -36,22 +39,34 @@ export class UserProvider extends Component {
         }
         return false
     }
-
-    /* removeProduct = (id: string) => {
-        if(window.confirm("Do you want to delete this product?")){
-            const {basket} = this.state;
-            basket.forEach((item, index) =>{
-                if(item._id === id){
-                    basket.splice(index, 1)
-                }
-            })
-            this.setState({basket: basket});
-            this.getTotal();
+    isUser = ()=>{
+        const {users} = this.state;
+        const data = users.filter(user =>{
+            return user.id === this.state.idAuth
+        })
+        return data;
+    }
+    editUser = (user:User,pass:string,name:string)=>{
+        const {users} = this.state;
+        let newUser = user
+        newUser.name=name
+        newUser.password=pass
+        if (users && user) {
+          const checker = users.find(
+            (u) => u.email === user.email && u.password === user.password
+          );
+          if (checker) {
+            
+            this.setState({users:users.concat(newUser),idAuth:newUser.id})
+            return true
+          }
+          else {
+            return false
+          }
+         
         }
-
-    }; */
-
-    
+        return false
+    }
     componentDidUpdate(){
         localStorage.setItem('dataUser', JSON.stringify(this.state))
     };
@@ -65,10 +80,10 @@ export class UserProvider extends Component {
 
 
     render() {
-        const {users} = this.state;
-        const {addUser,loginUser} = this;
+        const {users,idAuth} = this.state;
+        const {addUser,loginUser,isUser,editUser} = this;
         return (
-            <UserContext.Provider value={{users,addUser,loginUser}}>
+            <UserContext.Provider value={{users,idAuth,addUser,loginUser,isUser,editUser}}>
                 {this.props.children}
             </UserContext.Provider>
         )

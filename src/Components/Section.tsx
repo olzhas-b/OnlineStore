@@ -9,6 +9,7 @@ import Product from "./Section/Home/Product"
 import About from "./Section/About/About";
 import Favorite from "./Section/Favorite/Favorite";
 import Contacts from './Section/Contacts/Contacts';
+import Profile from './Section/Profile/Profile';
 import {ThemeContext} from "../Contexts/ThemeContext";
 import './css/Section.css'
 function Section() {
@@ -24,6 +25,7 @@ function Section() {
             <Route path="/favorite" component={Favorite} />
             <Route path="/registration" component={Registration} />
             <Route path="/contact" component={Contacts} />
+            <Route path="/profile" component={Profile}/>
         </section>
     )
 }
