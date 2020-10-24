@@ -38,7 +38,7 @@ export const likeCountHOC = ({ debug = false }: Options = {}) =>
       public render(): JSX.Element {
         return (
           <div onClick={this.onClick} style={this.props.style}>
-            <span>Liked {this.state.likeCount} times</span>
+            <span className="text-muted">Liked {this.state.likeCount} times</span>
             <WrappedComponent {...this.props} {...this.state} />
           </div>
         )
@@ -48,7 +48,12 @@ export const likeCountHOC = ({ debug = false }: Options = {}) =>
         if (debug) {
           console.debug("Liked");
         }
-        this.setState({ likeCount: this.state.likeCount + 1 });
+        if(this.state.likeCount === 1) {
+          alert("You've already liked this product")
+        }
+        else {
+          this.setState({ likeCount: this.state.likeCount + 1 });
+        }
       }
     }
   };
