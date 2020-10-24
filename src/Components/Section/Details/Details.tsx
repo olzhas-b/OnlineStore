@@ -1,4 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
+import {useLocation} from 'react-router-dom'
 import {DataContext} from "../../../Contexts/Context";
 import {Product as PRODUCT, Detail} from '../../../Interface/Interface'
 import {Comment} from '../CommentForm/Comment'
@@ -9,36 +10,36 @@ import LikeArea from './LikeArea'
 const Wrapped2 = likeCountHOC()(LikeArea);
 
 export function Details() {
-    const context = useContext(DataContext);
+    const location = useLocation();
     const {products} = useContext(DataContext);
     const [output, setOutput] = useState(detail);
-    const [id, setId] = useState('');
     useEffect(() => {
-        let param = window.location.pathname.split('/');
-        let id = param[param.length - 1];
-        id = id.split('').reverse().join('');
-        for (let i = 0; i < products.length; i++) {
-            if(id === products[i]._id) {
-                setOutput( {id: output.id, product: products[i]})
-            }
-        }
+        const id = location.pathname.split('/').pop()
+        setOutput({product: products.filter((item : PRODUCT) => (item._id === id))})
     },[])
     return (
         <>
-            <div>
-                <Wrapped2 style={{ padding: 20, background: "palegreen" }} />
-            </div>
-            <div className="container mt-4" key={output.product._id}>
-                <img src={output.product.src}  alt="good"/>
-                <div className="box">
-                    <div className="row">
-                        <h2>{output.product.title}</h2>
-                        <span className="ml-2">${output.product.price}</span>
+            {
+                output.product.map((item: PRODUCT) => (
+                    <div>
+                        <div>
+                            <Wrapped2 style={{ padding: 20, background: "palegreen" }} />
+                        </div>
+                        <div className="container mt-4" key={item._id}>
+                            <img src={item.src}  alt="good"/>
+                            <div className="box">
+                                <div className="row">
+                                    <h2>{item.title}</h2>
+                                    <span className="ml-2">${item.price}</span>
+                                </div>
+                                <p>{item.description}</p>
+                                <p>{item.content}</p>
+                            </div>
+                        </div>
                     </div>
-                    <p>{output.product.description}</p>
-                    <p>{output.product.content}</p>
-                </div>
-            </div>
+                ))
+            }
+
             <Comment />
 
         </>

@@ -230,8 +230,7 @@ export const initialCurrency: Currency = {
 };
 
 export const detail = {
-    id: '0',
-    product: {
+    product: [{
         _id: '',
         title: '',
         src: '',
@@ -242,7 +241,7 @@ export const detail = {
         category: '',
         color: '',
         banner: ''
-    }
+    }]
 }
 export const emailRex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+).([a-zA-Z]{2,5})$/;
 export const passRex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
