@@ -15,7 +15,7 @@ import './css/Section.css'
 function Section() {
     const themeContext = useContext(ThemeContext);
     return(
-        <section style={{background: themeContext.isLightTheme ? themeContext.section_light.background : themeContext.section_dark.background}}>
+        <section style={themeContext.isLightTheme ? themeContext.section_light : themeContext.section_dark}>
             <Route path="/" component={Home} exact />
             <Route path="/product" component={Product} exact />
             <Route path="/product/:id" component={Details} />

@@ -3,11 +3,12 @@ import {DataContext} from '../../../Contexts/Context'
 import {Link} from 'react-router-dom'
 import {Product} from "../../../Interface/Interface";
 import Item from "./Item";
+import {ThemeContext} from "../../../Contexts/ThemeContext";
 
 function Basket() {
+    const themeContext = useContext(ThemeContext);
     const context = useContext(DataContext);
-    const {basket,increase,reduction,removeProduct,total, getTotal} = context;
-
+    const {basket, total} = context;
     if(basket.length === 0){
         return <h2 style={{textAlign:"center"}}>Your Basket is empty </h2>
     }else{

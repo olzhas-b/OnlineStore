@@ -53,13 +53,6 @@ export interface Data {
     basket: Basket[],
     favorite: Favorite[],
     total: 0,
-    addBasket: (arg0: string) => void,
-    addFavorite: (arg0: string) => void,
-    removeFavorite: (arg0: string) => void,
-    reduction: (arg0: string) => void,
-    increase: (arg0: string) => void,
-    removeProduct: (arg0: string) => void,
-    getTotal: () => void;
 }
 
 
@@ -78,6 +71,14 @@ export interface theme {
         background: string
     },
     section_dark : {
+        color: string,
+        background: string
+    },
+    item_light: {
+        color: string,
+        background: string
+    },
+    item_dark : {
         color: string,
         background: string
     },
@@ -106,7 +107,6 @@ export interface LANGUAGE {
         log_reg: string,
         profile: string
     },
-    changeLanguage: () => void
 }
 
 export interface Currency {

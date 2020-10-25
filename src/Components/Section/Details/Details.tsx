@@ -25,8 +25,6 @@ export function Details({...props}) {
         <div className="app">
             {
                 output.product.map((item: PRODUCT) => (
-        
-                        
                         <div className="details" key={item._id}>
                             <div className="big-img item-photo">
                                 <img src={item.src}  alt="good"/>

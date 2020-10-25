@@ -75,8 +75,8 @@ export class DataProvider extends Component {
 
     getTotal = () => {
         const{basket} = this.state;
-        const res = basket.reduce((prev, item) => {
-            return prev + (item.price * item.count);
+        const res = basket.reduce((sum, item) => {
+            return sum + (item.price * item.count);
         }, 0)
         this.setState({total: res})
     };
@@ -93,23 +93,6 @@ export class DataProvider extends Component {
         }
     }
 
-    // componentDidUpdate(){
-    //     localStorage.setItem('dataBasket', JSON.stringify(this.state.basket))
-    //     localStorage.setItem('dataTotal', JSON.stringify(this.state.total))
-    // };
-    //
-    // componentDidMount(){
-    //     const dataBasket = JSON.parse(localStorage.getItem('dataBasket') as string);
-    //     if(dataBasket !== null){
-    //         this.setState({basket: dataBasket});
-    //     }
-    //     const dataTotal = JSON.parse(localStorage.getItem('dataTotal') as string);
-    //     if(dataTotal !== null){
-    //         this.setState({total: dataTotal});
-    //     }
-    // }
-
-
     render() {
         const {products, basket, total, favorite} = this.state;
         const {addBasket,reduction,increase,removeProduct, removeFavorite,getTotal, addFavorite} = this;
@@ -121,54 +104,3 @@ export class DataProvider extends Component {
     }
 }
 
-
-// {
-//     "_id": "2",
-//     "title": "Nike Shoes 02",
-//     "src": "https://www.upsieutoc.com/images/2020/06/27/img2.jpg",
-//     "description": "UI/UX designing, html css tutorials",
-//     "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-//     "price": 19,
-//     "colors": ["red", "crimson", "teal"],
-//     "count": 1
-// },
-// {
-//     "_id": "3",
-//     "title": "Nike Shoes 03",
-//     "src": "https://www.upsieutoc.com/images/2020/06/27/img3.jpg",
-//     "description": "UI/UX designing, html css tutorials",
-//     "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-//     "price": 50,
-//     "colors": ["lightblue", "white", "crimson", "teal"],
-//     "count": 1
-// },
-// {
-//     "_id": "4",
-//     "title": "Nike Shoes 04",
-//     "src": "https://www.upsieutoc.com/images/2020/06/27/img4.jpg",
-//     "description": "UI/UX designing, html css tutorials",
-//     "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-//     "price": 15,
-//     "colors": ["orange", "black", "crimson", "teal"],
-//     "count": 1
-// },
-// {
-//     "_id": "5",
-//     "title": "Nike Shoes 05",
-//     "src": "https://www.upsieutoc.com/images/2020/06/27/img5.jpg",
-//     "description": "UI/UX designing, html css tutorials",
-//     "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-//     "price": 10,
-//     "colors": ["orange", "black", "crimson", "teal"],
-//     "count": 1
-// },
-// {
-//     "_id": "6",
-//     "title": "Nike Shoes 06",
-//     "src": "https://www.upsieutoc.com/images/2020/06/27/img6.jpg",
-//     "description": "UI/UX designing, html css tutorials",
-//     "content": "Welcome to our channel Dev AT. Here you can learn web designing, UI/UX designing, html css tutorials, css animations and css effects, javascript and jquery tutorials and related so on.",
-//     "price": 17,
-//     "colors": ["orange", "black", "crimson", "teal"],
-//     "count": 1
-// }

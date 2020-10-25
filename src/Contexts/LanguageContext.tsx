@@ -2,7 +2,7 @@ import React, {Component, createContext} from 'react';
 import {LANGUAGE} from "../Interface/Interface";
 import {initialLanguage} from "../Data/initialDATA";
 
-export const languageContext = createContext<LANGUAGE>(initialLanguage);
+export const languageContext = createContext<LANGUAGE | any>(initialLanguage);
 class LanguageContextProvider extends Component {
     state: LANGUAGE = initialLanguage;
     changeLanguage = () => {

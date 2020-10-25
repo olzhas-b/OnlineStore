@@ -1,4 +1,4 @@
-import { rootCertificates } from "tls";
+
 import {Data, LANGUAGE, theme, Currency, Users} from "../Interface/Interface";
 export const initialData: Data = {
     products: [
@@ -162,14 +162,7 @@ export const initialData: Data = {
     ],
     basket: [],
     favorite: [],
-    total: 0,
-    addBasket: () => {},
-    addFavorite: () => {},
-    reduction: () => {},
-    increase:  () => {},
-    removeProduct: () => {},
-    removeFavorite: () => {},
-    getTotal: () => {}
+    total: 0
 };
 export const initialUsers : Users = {
     users: [
@@ -184,9 +177,11 @@ export const initialUsers : Users = {
 export const initialTheme : theme = {
     isLightTheme: true,
     header_light: {color:'#555', background: '#eee'},
-    header_dark: {color: '#ddd', background: '#2C3E50'},
+    header_dark: {color: '#494428', background: 'black'},
     section_light: {color:'#555', background: '#fafafa'},
-    section_dark: {color: '#ddd', background: '#808B96'},
+    section_dark: {color: 'white', background: '#454545'},
+    item_light: {color:'#555', background: '#fafafa'},
+    item_dark: {color: 'white', background: '#393939'},
     changeTheme: () =>  {}
 };
 
@@ -210,8 +205,7 @@ export const initialLanguage: LANGUAGE = {
         favorite: 'Favorite',
         log_reg: 'Login/Registration',
         profile: 'Profile'
-    },
-    changeLanguage: () => {}
+    }
 };
 
 export const initialCurrency: Currency = {

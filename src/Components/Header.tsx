@@ -10,7 +10,7 @@ import {currencyContext} from "../Contexts/CurrencyContext";
 
 
 function Header() {
-    const  context  = useContext(DataContext);
+    const  {basket}  = useContext(DataContext);
     const lanContext = useContext(languageContext)
     const themeContext = useContext(ThemeContext);
     const curContext = useContext(currencyContext)
@@ -35,7 +35,7 @@ function Header() {
                     <li><Link to="/Profile">{lanContext.isEN ? lanContext.en.profile : lanContext.ru.profile}</Link></li>
                     <li>
                         <div className={"nav-cart"}>
-                            <span className={"count_basket"}>{context.basket.length}</span>
+                            <span className={"count_basket"}>{basket.length}</span>
                             <Link to="/basket"><img src={basketIcon} alt="" width="20"/></Link>
                         </div>
                     </li>

@@ -6,7 +6,6 @@ import '../../css/Main.css'
 function Slider() {
 
     return(
-
         <AliceCarousel autoPlay autoPlayInterval={3000}>
             <img src={"https://object.pscloud.io/cms/cms/Banners/banner_2803_ru-Ru_desktop.png"} alt={""} className="sliderimg"/>
             <img src={"https://object.pscloud.io/cms/cms/Banners/banner_2704_ru-Ru_desktop.webp"} alt={""} className="sliderimg"/>

@@ -16,18 +16,15 @@ class App extends Component{
             <ThemeContextProvider>
                <DataProvider>
                    <UserProvider>
-                   <CurrencyContextProvider>
-                         
-                   
-                    
-                   <Router>
-                       <LanguageContextProvider>
-                           <Header/>
-                       </LanguageContextProvider>
-                       <Section/>
-                       <Footer/>
-                   </Router>
-                   </CurrencyContextProvider>
+                       <CurrencyContextProvider>
+                           <Router>
+                               <LanguageContextProvider>
+                                   <Header/>
+                               </LanguageContextProvider>
+                               <Section/>
+                               <Footer/>
+                           </Router>
+                       </CurrencyContextProvider>
                    </UserProvider>
                </DataProvider>
             </ThemeContextProvider>

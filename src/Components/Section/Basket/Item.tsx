@@ -2,15 +2,16 @@ import React, {useContext, useEffect, useState} from "react";
 import '../../css/Basket.css'
 import {Link} from "react-router-dom";
 import {DataContext} from "../../../Contexts/Context";
+import {ThemeContext} from "../../../Contexts/ThemeContext";
 function Item({...props}) {
-    const {reduction, removeProduct, increase, getTotal, basket} = useContext(DataContext);
-    const [counter, setCounter] = useState(0);
+    const themeContext = useContext(ThemeContext);
+    const {reduction, removeProduct, increase, getTotal} = useContext(DataContext);
     useEffect(() => {
         getTotal();
     }, [props.item.count]);
     return (
         <div className={"main"}>
-            <div className="details basket" key={props.item._id}>
+            <div className="details basket" key={props.item._id} style={themeContext.isLightTheme ? themeContext.item_light : themeContext.item_dark}>
                 <Link to={`/product/${props.item._id}`}>
                     <div className="container" >
                         <img src={props.item.src}/>

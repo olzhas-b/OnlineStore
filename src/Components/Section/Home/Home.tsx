@@ -5,33 +5,32 @@ import Product from './Product'
 import Slider from "./Slider";
 import '../../css/Main.css'
 import {useContext, useRef, useState} from "react";
-interface KeyboardEvent {
-    code: string;
-}
+import {ThemeContext} from "../../../Contexts/ThemeContext";
 
 
 
 function Home() {
+    const themeContext =useContext(ThemeContext);
     const context = useContext(DataContext);
     const ref = useRef<HTMLInputElement>(null);
     const {products} = context;
-    const [result, setResult] = useState(context.products);
+    const [output, setOutput] = useState(context.products);
     const [input, setInput] = useState<string>('');
     const handlePressKey = (e: React.KeyboardEvent) => {
-        console.log(result)
+        console.log(output);
         if(e.key === 'Enter') {
             if(ref.current!.value === '') {
-                setResult(products)
+                setOutput(products)
             }
             else if(input.length === 0) {
-                setResult([]);
+                setOutput([]);
             } else {
-                var data: PRODUCT[] = []
+                let data: PRODUCT[] = [];
                 const check = new Map();
                 for (let i = 0; i < products.length; i++) {
                     const str1 = products[i].title.toLowerCase();
                     const str2 = ref.current!.value.toLowerCase();
-                    const mn = Math.min(str1.length, str2.length)
+                    const mn = Math.min(str1.length, str2.length);
                     if (str1.slice(0, mn) === str2.slice(0, mn)) {
                         data.push(products[i]);
                         check.set(products[i]._id, true);
@@ -46,7 +45,7 @@ function Home() {
                         check.set(products[i]._id, true);
                     }
                 }
-                setResult(data);
+                setOutput(data);
                 setInput('');
             }
         }
@@ -57,13 +56,13 @@ function Home() {
                 <Slider/>
             </div>
             <div className={"Search"}>
-                <input ref={ref} onChange={event => setInput(event.target.value)} onKeyPress={(event) => handlePressKey(event)} className="form-control form-control-lg" type="text" placeholder="Search"/>
+                <input ref={ref} onChange={event => setInput(event.target.value)} onKeyPress={(event) => handlePressKey(event)} className="form-control form-control-lg" type="text" placeholder="Search" style={themeContext.isLightTheme ? themeContext.item_light : themeContext.item_dark}/>
             </div>
             <div className={"items"}>
-                { (result === null || result.length === 0) ?  <div className={"dontfind"}>We don't find product or category</div> :
+                { (output === null || output.length === 0) ?  <div className={"dontfind"}>We don't find product or category</div> :
                     <div id="product">
                         {
-                            result.map((product: PRODUCT) => (
+                            output.map((product: PRODUCT) => (
                                 <Product product={product} key={product._id}> </Product>
                             ))
                         }

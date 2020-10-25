@@ -10,10 +10,10 @@ export class ThemeContextProvider extends Component {
         this.setState({...this.state, isLightTheme: !this.state.isLightTheme});
     }
     render() {
-        const {isLightTheme, header_light, header_dark, section_dark, section_light} = this.state;
+        const {isLightTheme, header_light, header_dark, section_dark, section_light,item_dark, item_light} = this.state;
         const {changeTheme} = this;
         return (
-            <ThemeContext.Provider value={{isLightTheme, header_light, header_dark, section_dark, section_light, changeTheme}}>
+            <ThemeContext.Provider value={{isLightTheme, header_light, header_dark, section_dark, section_light, item_dark, item_light, changeTheme}}>
                 {this.props.children}
             </ThemeContext.Provider>
         );
