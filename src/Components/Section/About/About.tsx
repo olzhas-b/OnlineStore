@@ -9,7 +9,7 @@ function About() {
                 <p>Resize the browser window to see that this page is responsive by the way.</p>
             </div>
             <h2 className="team">Our Team</h2>
-            <div className="row">
+            <div className="row ml-5">
                 <div className="column">
                     <div className="card">
                         <img src="https://i.stack.imgur.com/l60Hf.png" alt="Olzhas" />
@@ -36,7 +36,7 @@ function About() {
                     <div className="card">
                         <img src="https://i.stack.imgur.com/l60Hf.png" alt="Arman" />
                         <div className="container">
-                            <h2>Ualikhan Sharipbai</h2>
+                            <h2>Ualikhan Sharipbay</h2>
                             <p className="title">Art Director</p>
                             <p>uali@gmail.com</p>
                             <p><button className="button">Contact</button></p>

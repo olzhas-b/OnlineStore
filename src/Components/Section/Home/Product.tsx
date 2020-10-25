@@ -25,7 +25,7 @@ function Product({...props}) {
                 <span>{!curContext.isUSD ? '₸': ' $'}{!curContext.isUSD ? props.product.price * 420: props.product.price}</span>
                 <p>{props.product.description}</p>
                 <button className={"btn btn-success"} onClick={() => context.addBasket(props.product._id)}>Add to cart</button>
-                <button className={"btn btn-warning"} onClick={() => context.addFavorite(props.product._id)}>favorite</button>
+                <button className={"btn btn-warning"} onClick={() => context.addFavorite(props.product._id)}>Favorite</button>
             </div>
         </div>
     )
