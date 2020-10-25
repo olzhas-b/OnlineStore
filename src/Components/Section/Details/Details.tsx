@@ -41,7 +41,7 @@ export function Details({...props}) {
                                 <div>
                                     <Wrapped />
                                 </div>
-                                <button className="btn btn-success" onClick={() => context.addBasket(item._id)}>Add to cart</button>
+                                <button className="btn btn-success" onClick={() => context.addBasket(item._id)}>Add to basket</button>
                                 <button className={"btn btn-warning"} onClick={() => context.addFavorite(item._id)}>favorite</button>
                             </div>
                         </div>
