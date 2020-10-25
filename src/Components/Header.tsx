@@ -18,7 +18,7 @@ function Header() {
     return(
         <header className={"header"} style={themeContext.isLightTheme ? themeContext.header_light : themeContext.header_dark}>
             <div className={"logo"}>
-                <h1><Link to="/">Online Store</Link></h1>
+                <h1><Link to="/">TopStore</Link></h1>
             </div>
             <nav className={"header-right"}>
                 <ul>
