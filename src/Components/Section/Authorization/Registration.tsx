@@ -1,7 +1,7 @@
 import React, { useRef, useEffect,useContext,useState } from 'react';
 import { User } from '../../../Interface/Interface'
 import {UserContext} from "../../../Contexts/UserContext";
-import { Redirect,Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import {emailRex,passRex} from '../../../Data/initialDATA'
 
 function Registration() {
@@ -15,8 +15,7 @@ function Registration() {
         name.current?.focus();
       }, []);
     
-    const PressHandler = (event: { preventDefault: () => void; }) => {
-        event.preventDefault();
+    const ValidateUser = () => {
         if (!emailRex.test(user.email)) {
             alert("Please enter a valid email address");
             console.log('Error');
@@ -86,7 +85,7 @@ function Registration() {
             
             
         </div>
-        <button onClick={PressHandler} type="submit" className="btn btn-primary">Submit</button>
+        <button onClick={ValidateUser} type="submit" className="btn btn-primary">Submit</button>
         
     </form>
     </div>

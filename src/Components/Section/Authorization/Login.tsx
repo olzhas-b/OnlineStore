@@ -17,8 +17,7 @@ function Login() {
       }, []);
     useEffect(()=>
     console.log('rnder'))
-    const PressHandler = (event: { preventDefault: () => void; }) => {
-        event.preventDefault();
+    const ValidateUser = () => {
         
         if (!emailRex.test(user.email)) {
             alert("Please enter a valid email address");
@@ -34,7 +33,6 @@ function Login() {
         }
         else {
             setState(()=>context.loginUser(user))
-            
             email.current!.value = '';
             pass.current!.value = '';
         }
@@ -62,19 +60,19 @@ function Login() {
             />
             <label htmlFor="inputPassword">Your password:</label>
             <input
+                type="password"
                 ref={pass}
-                type="text"
                 className="form-control"
                 id="inputPassword"
+                placeholder="Type your password"
                 onChange={(e) => {
                     user.password = e.target.value
                 }}
-                placeholder="Type your password"
                 required
             />
             
         </div>
-        <button onClick={PressHandler} type="submit" className="btn btn-primary">Submit</button>
+        <button onClick={ValidateUser} type="submit" className="btn btn-primary">Submit</button>
         <p>Don't have an account? Register <Link to="/Registration">here</Link></p>
     </form>
     

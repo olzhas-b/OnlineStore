@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom';
 import {UserContext} from "../../../Contexts/UserContext";
 import { User } from '../../../Interface/Interface'
-import { withRedirectComponent } from '../../hoc/withRedirectComponent';
+
 
 
 class Profile extends Component{
@@ -14,13 +14,14 @@ class Profile extends Component{
     
     render() {
         const {isUser,editUser} = this.context
-        let user: User = isUser()[0]
+        let user: User = isUser()
+        console.log(this.context.idAuth)
+        user.password=''
         let pass: string=''
         let name: string=''
         
-        console.log(user)
-        const checkUser = (event: { preventDefault: () => void; }) => {
-            event.preventDefault();
+        const checkUser = () => {
+            console.log(user)
             const check = editUser(user,pass,name)
             if(check){
                 alert('Your data changed')
@@ -33,6 +34,7 @@ class Profile extends Component{
             return <Redirect to='/login'/>
         }
         return (
+            
             <div className="auth-form">
                 <form>
                     <div className="form-group">
@@ -83,4 +85,4 @@ class Profile extends Component{
     }
 }
 
-export default withRedirectComponent(Profile);
+export default Profile

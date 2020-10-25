@@ -28,10 +28,11 @@ export class UserProvider extends Component {
             (u) => u.email === user.email && u.password === user.password
           );
           if (checker) {
-            const data = users.filter(u =>{
+            const data = users.find(u =>{
                 return u.email === user.email
-            })[0]
-            this.setState({idAuth:data.id})
+            })
+            this.setState({idAuth:data!.id})
+            
             return true
           }
           else 
@@ -41,22 +42,30 @@ export class UserProvider extends Component {
     }
     isUser = ()=>{
         const {users} = this.state;
-        const data = users.filter(user =>{
+        
+        const data = users.find(user =>{
             return user.id === this.state.idAuth
         })
-        return data;
+        let newData = {...data};
+        if(data===undefined)
+          return { email: "", id: -1, password: "", name: "" }
+        else{
+          console.log(this.state.users[0])
+        return newData
+        };
     }
-    editUser = (user:User,pass:string,name:string)=>{
+    editUser:(user:User,pass:string,name:string)=>boolean= (user:User,pass:string,name:string)=>{
         const {users} = this.state;
-        let newUser = user
+        let newUser = {...user}
         newUser.name=name
         newUser.password=pass
         if (users && user) {
           const checker = users.find(
             (u) => u.email === user.email && u.password === user.password
           );
+         
           if (checker) {
-            
+            newUser.id=checker.id+10
             this.setState({users:users.concat(newUser),idAuth:newUser.id})
             return true
           }
@@ -68,7 +77,7 @@ export class UserProvider extends Component {
         return false
     }
     componentDidUpdate(){
-        localStorage.setItem('dataUser', JSON.stringify(this.state))
+      localStorage.setItem('dataUser', JSON.stringify(this.state))
     };
 
     componentDidMount(){
@@ -77,7 +86,6 @@ export class UserProvider extends Component {
             this.setState(dataUser);
         }
     }
-
 
     render() {
         const {users,idAuth} = this.state;

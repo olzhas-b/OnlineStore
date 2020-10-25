@@ -220,10 +220,6 @@ export const initialUsers : Users = {
     users: [
         {"id":0,"email":"root@root.kz","name":"root","password":"Root2020"}
     ],
-    addUser: () => {},
-    loginUser: ()=> {return false},
-    isUser: ()=>{return {"id":-1,"email":"","name":"","password":""}},
-    editUser:()=>{return false},
     idAuth: -1
 }
 export const initialTheme : theme = {
@@ -289,5 +285,5 @@ export const detail = {
         banner: ''
     }]
 }
-export const emailRex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+).([a-zA-Z]{2,5})$/;
+export const emailRex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 export const passRex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
