@@ -39,7 +39,7 @@ function Home() {
                 for (let i = 0; i < products.length; i++) {
                     const str1 = products[i].category.toLowerCase();
                     const str2 = ref.current!.value.toLowerCase();
-                    const mn = Math.min(str1.length, str2.length)
+                    const mn = Math.min(str1.length, str2.length);
                     if (!check.has(products[i].id) && str2.slice(0, mn) === str1.toLowerCase().slice(0, mn)) {
                         data.push(products[i]);
                         check.set(products[i]._id, true);

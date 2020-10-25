@@ -159,6 +159,58 @@ export const initialData: Data = {
             color: '#e040fb',
             banner: 'скидка'
         },
+        {
+            _id: "13",
+            title: "Iphone 12",
+            src: "https://i.pinimg.com/736x/8b/60/4a/8b604a0f29f7a07156f369050c36ac7f.jpg",
+            description: "iPhone 12 Pro, 128 ГБ, Графитовый. новая поколения",
+            content: "iPhone 12 Pro способен передавать\n" +
+                "данные по сетям LTE со скоростью\n" +
+                "до 2 Гбит/с. Это означает, что можно\n" +
+                "быстрее скачивать файлы и фотографии,\n" +
+                "а качество стриминга повысится.\n" +
+                "При этом поддерживаются самые разные\n" +
+                "диапазоны LTE, поэтому более высокая\n" +
+                "скорость доступна вам во многих\n" +
+                "городах и странах по всему миру.◊ Самый быстрый\n" +
+                "процессор iPhone.\n" +
+                "Это первый процессор iPhone\n" +
+                "с применением 5-нанометровой\n" +
+                "технологии. Более быстрый,\n" +
+                "более мощный, более эффективный.",
+            price: 999,
+            count: 1,
+            category: 'phone',
+            color: '#b2ff59',
+            banner: 'новый'
+        },
+        {
+            _id: "14",
+            title: "PS5 Console",
+            src: "https://img.mvideo.ru/Pdb/40074203b.jpg",
+            description: "  PlayStation 5 — 390x104x260,цифровая версия всего лишь на 12 мм",
+            content: 'Главные характеристики PS5 таковы: 8-ядерный процессор AMD Ryzen 3-го поколения на 7-нм микроархитектуре Zen 2 с (переменной) тактовой частотой 3,5 ГЦ, кастомная графика на базе архитектуры AMD RDNA2 с (также переменной) частотой 2,23 Гц, 16 ГБ оперативной памяти типа GDDR6 с пропускной способностью 448 ГБ/c',
+            price: 399,
+            count: 1,
+            category: "console",
+            color: '#b2ff59',
+            banner: 'новый'
+        },
+        {
+            _id: "15",
+            title: "Xbox X series",
+            src: "https://gamerz.kz/wp-content/uploads/edd/2020/09/40073271b.jpg",
+            description: "The Xbox Series X is almost here. \n" +
+                "pre-order now ",
+            content: 'The Xbox Series X is Microsoft\'s most powerful next-generation console and will be released on November 10 2020 for $499 / £449 / AU$749. Xbox Series X pre-orders are live now, as are those for the cheaper and less powerful Xbox Series S, though stock of the flagship console has been much harder to find. ',
+            price: 449,
+            count: 1,
+            category: 'console',
+            color: '#b2ff59',
+            banner: 'новый'
+        },
+
+
     ],
     basket: [],
     favorite: [],
