@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react'
 import {useLocation} from 'react-router-dom'
 import {DataContext} from "../../../Contexts/Context";
-import {Product as PRODUCT, Detail} from '../../../Interface/Interface'
+import {Product as PRODUCT} from '../../../Interface/Interface'
 import {Comment} from '../CommentForm/Comment'
 import {detail} from '../../../Data/initialDATA'
 import {likeCountHOC} from './LikeCountHOC'
@@ -34,7 +34,7 @@ export function Details({...props}) {
                                     <h2>{item.title}</h2>
                                 </div>
                                 <h6 className="title-price text-info">CURRENT PRICE:</h6>
-                                <span className="price">{!currContext.isUSD ? '₸': ' $'}{!currContext.isUSD ? item.price * 420: item.price}</span>
+                                <span className="price">{!currContext.isUSD ? currContext.tg.symbol : currContext.usd.symbol}{!currContext.isUSD ? item.price * 420: item.price}</span>
                                 <h6 className="mt-3 text-info">DESCRIPTION:</h6>
                                 <p>{item.description}</p>
                                 <p>{item.content}</p>
@@ -42,7 +42,7 @@ export function Details({...props}) {
                                     <Wrapped />
                                 </div>
                                 <button className="btn btn-success" onClick={() => context.addBasket(item._id)}>Add to basket</button>
-                                <button className={"btn btn-warning"} onClick={() => context.addFavorite(item._id)}>favorite</button>
+                                <button className={"btn btn-warning"} onClick={() => context.addFavorite(item._id)}>Favorite</button>
                             </div>
                         </div>
                 ))

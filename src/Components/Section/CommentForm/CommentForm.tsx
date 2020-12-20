@@ -12,12 +12,13 @@ export const CommentForm: React.FC<CommentFormProps> = props => {
   const ClickPressHandler = (event: any) => {
       event.preventDefault(); 
 
-      if (ref.current!.value !== ''){
+      if (ref.current!.value !== '' && ref.current!.value.length < 50){
         props.onAdd(ref.current!.value)
         ref.current!.value = ''
       }
       else {
         ref.current!.value = ''
+        alert('Should be less than 50 words!');
       }
 
   }

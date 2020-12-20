@@ -23,7 +23,7 @@ function Product({...props}) {
                 <h3>
                     <Link to={`/product/${props.product._id}`} style={{color: themeContext.isLightTheme ? themeContext.item_light.color : themeContext.item_dark.color}}>{props.product.title}</Link>
                 </h3>
-                <span>{!curContext.isUSD ? '₸': ' $'}{!curContext.isUSD ? props.product.price * 420: props.product.price}</span>
+                <span>{!curContext.isUSD ? curContext.tg.symbol : curContext.usd.symbol}{!curContext.isUSD ? props.product.price * 420: props.product.price}</span>
                 <p>{props.product.description}</p>
                 <button className={"btn btn-success"} onClick={() => context.addBasket(props.product._id)}>Add to basket</button>
                 <button className={"btn btn-warning"} onClick={() => context.addFavorite(props.product._id)}>Favorite</button>

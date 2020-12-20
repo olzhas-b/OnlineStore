@@ -45,9 +45,6 @@ export const likeCountHOC = ({ debug = false }: Options = {}) =>
       }
 
       private onClick() {
-        if (debug) {
-          console.debug("Liked");
-        }
         if(this.state.likeCount === 1) {
           alert("You've already liked this product")
         }
