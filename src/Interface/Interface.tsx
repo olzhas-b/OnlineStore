@@ -39,7 +39,7 @@ export interface User {
     name: string;
     email: string;
     password: string;
-  }
+}
 export interface Users {
     users: User[],
     idAuth: number,
@@ -92,7 +92,8 @@ export interface LANGUAGE {
         about: string,
         favorite: string,
         log_reg: string,
-        profile: string
+        profile: string,
+        sale: string
     },
     en: {
         title: string,
@@ -101,7 +102,8 @@ export interface LANGUAGE {
         about: string,
         favorite: string,
         log_reg: string,
-        profile: string
+        profile: string,
+        sale: string
     },
 }
 
@@ -124,7 +126,7 @@ export interface ITodo {
     title: string,
     id: number,
     completed: boolean
-  }
+}
 
 export interface Detail {
     product: Product[]

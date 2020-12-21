@@ -1,0 +1,28 @@
+{
+  "posts" : [
+    {
+      "id" : "0",
+      "image" : "https://object.pscloud.io/cms/cms/SpecialOffers/img_4830_3_1.png",
+      "title": "Xbox",
+      "description" : "console for gameasaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaing"
+    },
+    {
+      "id" : "1",
+      "image": "https://object.pscloud.io/cms/cms/SpecialOffers/img_4830_3_1.png",
+      "title": "Xbox",
+      "description" : "console for gameing"
+    },
+    {
+      "id": "2",
+      "image": "https://object.pscloud.io/cms/cms/SpecialOffers/img_4830_3_1.png",
+      "title": "Xbox",
+      "description": "console for gameing"
+    },
+    {
+      "id" : "3",
+      "title": "Xbox",
+      "image": "https://object.pscloud.io/cms/cms/SpecialOffers/img_4830_3_1.png",
+      "description" : "console for gameasaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaing"
+    }
+  ]
+}

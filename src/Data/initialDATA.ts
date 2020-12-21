@@ -243,7 +243,8 @@ export const initialLanguage: LANGUAGE = {
         about: 'О Нас',
         favorite: 'Избранное',
         log_reg: 'Логин/Регистрация',
-        profile: 'Профиль'
+        profile: 'Профиль',
+        sale: 'Акция'
     },
     en: {
         title: 'EN',
@@ -252,7 +253,8 @@ export const initialLanguage: LANGUAGE = {
         about: 'About',
         favorite: 'Favorite',
         log_reg: 'Login/Registration',
-        profile: 'Profile'
+        profile: 'Profile',
+        sale: 'Sale'
     }
 };
 
