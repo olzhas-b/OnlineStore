@@ -5,7 +5,7 @@ import {DataContext} from "../../../Contexts/Context";
 import {ThemeContext} from "../../../Contexts/ThemeContext";
 function Item({...props}) {
     const themeContext = useContext(ThemeContext);
-    const {removeFavorite, getTotal, basket} = useContext(DataContext);
+    const {removeFavorite, getTotal} = useContext(DataContext);
     useEffect(() => {
         getTotal();
     }, [props.item.count]);

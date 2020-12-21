@@ -22,8 +22,8 @@ function Header() {
             </div>
             <nav className={"header-right"}>
                 <ul>
-                    <li><button className={"toggle_currency"} onClick={curContext.changeCurrency}>{curContext.isUSD ? 'Tenge' : 'USD'}</button></li>
-                    <li><button className={"toggle_language"} onClick={lanContext.changeLanguage}>{lanContext.isEN ? 'RU' : 'EN'}</button></li>
+                    {/*<li><button className={"toggle_currency"} onClick={curContext.changeCurrency}>{curContext.isUSD ? 'Tenge' : 'USD'}</button></li>*/}
+                    {/*<li><button className={"toggle_language"} onClick={lanContext.changeLanguage}>{lanContext.isEN ? 'RU' : 'EN'}</button></li>*/}
                     <li className={"toggle_theme"} onMouseDown={themeContext.changeTheme}>
                         <Toggle/>
                     </li>

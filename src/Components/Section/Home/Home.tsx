@@ -1,13 +1,12 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import {DataContext} from "../../../Contexts/Context";
 import {Product as PRODUCT} from "../../../Interface/Interface";
-import Product from './Product'
 import Slider from "./Slider";
 import '../../css/Main.css'
 import {useContext, useRef, useState} from "react";
 import {ThemeContext} from "../../../Contexts/ThemeContext";
 
-
+const Product = lazy(() => import('./Product'));
 
 function Home() {
     const themeContext =useContext(ThemeContext);
@@ -63,8 +62,12 @@ function Home() {
                     <div id="product">
                         {
                             output.map((product: PRODUCT) => (
-                                <Product product={product} key={product._id}> </Product>
-                            ))
+
+                                    <Suspense fallback={<div>Loading wait second...</div>}>
+                                        <Product product={product} key={product._id}> </Product>
+                                    </Suspense>
+
+                                    ))
                         }
                     </div>
                 }

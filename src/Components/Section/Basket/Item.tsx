@@ -1,8 +1,8 @@
-import React, {useContext, useEffect, useState} from "react";
-import '../../css/Basket.css'
+import React, {useContext, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {DataContext} from "../../../Contexts/Context";
 import {ThemeContext} from "../../../Contexts/ThemeContext";
+import '../../css/Basket.css'
 function Item({...props}) {
     const themeContext = useContext(ThemeContext);
     const {reduction, removeProduct, increase, getTotal} = useContext(DataContext);
