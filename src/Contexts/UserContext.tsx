@@ -76,6 +76,9 @@ export class UserProvider extends Component {
         }
         return false
     }
+    logout = () => {
+      this.setState({idAuth:-1})
+    }
     componentDidUpdate(){
       localStorage.setItem('dataUser', JSON.stringify(this.state))
     };
@@ -89,9 +92,9 @@ export class UserProvider extends Component {
 
     render() {
         const {users,idAuth} = this.state;
-        const {addUser,loginUser,isUser,editUser} = this;
+        const {addUser,loginUser,isUser,editUser,logout} = this;
         return (
-            <UserContext.Provider value={{users,idAuth,addUser,loginUser,isUser,editUser}}>
+            <UserContext.Provider value={{users,idAuth,addUser,loginUser,isUser,editUser,logout}}>
                 {this.props.children}
             </UserContext.Provider>
         )

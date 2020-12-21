@@ -7,6 +7,7 @@ import Toggle from "./svg/Toggle/Toggle";
 import {ThemeContext} from "../Contexts/ThemeContext";
 import {languageContext} from "../Contexts/LanguageContext";
 import {currencyContext} from "../Contexts/CurrencyContext";
+import {UserContext} from "../Contexts/UserContext";
 
 
 function Header() {
@@ -14,7 +15,7 @@ function Header() {
     const lanContext = useContext(languageContext)
     const themeContext = useContext(ThemeContext);
     const curContext = useContext(currencyContext)
-
+    const userContext = useContext(UserContext)
     return(
         <header className={"header"} style={themeContext.isLightTheme ? themeContext.header_light : themeContext.header_dark}>
             <div className={"logo"}>
@@ -31,7 +32,7 @@ function Header() {
                     <li><Link to="/contact">{lanContext.isEN ? lanContext.en.contact : lanContext.ru.contact}</Link></li>
                     <li><Link to="/about">{lanContext.isEN ? lanContext.en.about : lanContext.ru.about}</Link></li>
                     <li><Link to="/favorite">{lanContext.isEN ? lanContext.en.favorite : lanContext.ru.favorite}</Link></li>
-                    <li><Link to="/login">{lanContext.isEN ? lanContext.en.log_reg : lanContext.ru.log_reg}</Link></li>
+                    <li><Link to="/login">{userContext.idAuth!==-1?`Log out`:lanContext.isEN ? lanContext.en.log_reg : lanContext.ru.log_reg}</Link></li>
                     <li><Link to="/Profile">{lanContext.isEN ? lanContext.en.profile : lanContext.ru.profile}</Link></li>
                     <li>
                         <div className={"nav-cart"}>

@@ -41,7 +41,10 @@ function Login() {
     if(state){
         return (<Redirect to='/'/>)
     }
-    else {
+    if(context.idAuth!==-1){
+        context.logout();
+        return (<Redirect to='/'/>)
+    }
     return (
     <div className="auth-form">
     <form>
@@ -78,6 +81,6 @@ function Login() {
     
     </div>
     )
-            }
+            
 }
 export default Login;

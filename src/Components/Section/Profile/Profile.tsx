@@ -34,7 +34,9 @@ class Profile extends Component{
             return <Redirect to='/login'/>
         }
         return (
-            
+            <>{
+            user.id===0 ?
+            <h2>Welcome Admin</h2> :
             <div className="auth-form">
                 <form>
                     <div className="form-group">
@@ -81,6 +83,8 @@ class Profile extends Component{
                     
                 </form>
             </div>
+            }
+            </>
         )
     }
 }

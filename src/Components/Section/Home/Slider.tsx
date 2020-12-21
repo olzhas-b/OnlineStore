@@ -1,11 +1,16 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css"
 import '../../css/Main.css'
 import {Link} from "react-router-dom";
 
 function Slider() {
-
+    useEffect(()=>{
+        return () => {
+            
+        } 
+    }, []
+    )
     return(
         <AliceCarousel autoPlay autoPlayInterval={3000}>
             <Link to="/product/13">
