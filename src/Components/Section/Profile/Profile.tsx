@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
@@ -17,7 +18,23 @@ function Profile() {
         user.password=''
         let password: string=''
         let username: string=''
+        let salesName: string=''
+        let salesDescription: string=''
+        let salesPictureUrl: string=''
+        let productID: string=''
         
+        const submit = () => {
+            
+            const params = {
+                "id": productID,
+                "title": salesName,
+                "description": salesDescription,
+                "image": salesPictureUrl,
+              }
+            
+            axios.post('http://localhost:3000/posts/', params);
+            
+        }
         const checkUser = () => {
             console.log(user)
             const check = context.editUser(user,password,username)
@@ -34,7 +51,58 @@ function Profile() {
         return (
             <>{
             user.id===0 ?
-            <h2>Welcome Admin</h2> :
+            <div className={style.authForm}>
+            <form>
+                <div className={style.formGroup}>
+                        <span>Enter details of new product for sales</span><br/>
+                        <label htmlFor="inputSales">Sales name:</label>
+                        <input
+                            
+                            type="text"
+                            className="form-control"
+                            id="inputSales"
+                            onChange={(e) => {
+                                salesName = e.target.value
+                            }}
+                            placeholder="Enter sales name"
+                            required
+                        />
+                        <label htmlFor="inputDescription">Sales description:</label>
+                        <textarea 
+                            className="form-control" 
+                            id="inputDescription" 
+                            onChange={(e) => {
+                                salesDescription = e.target.value
+                            }}
+                            placeholder="Enter description"/>
+                        <label htmlFor="inputPicture">Picture of salses:</label>
+                        <input
+                            
+                            type="text"
+                            className="form-control"
+                            id="inputPicture"
+                            onChange={(e) => {
+                                salesPictureUrl = e.target.value
+                            }}
+                            placeholder="Enter url of picture"
+                            required
+                        />
+                        <label htmlFor="inputProductId">Product ID:</label>
+                        <input
+                            
+                            type="text"
+                            className="form-control"
+                            id="inputProductID"
+                            onChange={(e) => {
+                                productID = e.target.value
+                            }}
+                            placeholder="Enter product id"
+                            required
+                        />
+                    </div>
+                    <button onClick={submit} type="button" className="btn btn-primary">Submit</button>
+                </form>
+            </div> :
             <div className={style.authForm}>
             <form>
                 <div className={style.formGroup}>
@@ -85,4 +153,4 @@ function Profile() {
     
 }
 
-export default Profile
+export default Profile;

@@ -1,28 +1,15 @@
-{
-  "posts" : [
-    {
-      "id" : "0",
-      "image" : "https://object.pscloud.io/cms/cms/SpecialOffers/img_4830_3_1.png",
-      "title": "Xbox",
-      "description" : "console for gameasaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaing"
-    },
-    {
-      "id" : "1",
-      "image": "https://object.pscloud.io/cms/cms/SpecialOffers/img_4830_3_1.png",
-      "title": "Xbox",
-      "description" : "console for gameing"
-    },
-    {
-      "id": "2",
-      "image": "https://object.pscloud.io/cms/cms/SpecialOffers/img_4830_3_1.png",
-      "title": "Xbox",
-      "description": "console for gameing"
-    },
-    {
-      "id" : "3",
-      "title": "Xbox",
-      "image": "https://object.pscloud.io/cms/cms/SpecialOffers/img_4830_3_1.png",
-      "description" : "console for gameasaaaaaaaaa aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaa aaaaaaaaaaing"
-    }
-  ]
+{"posts" : [
+  {
+    "id" : "14",
+    "image": "https://htstatic.imgsmail.ru/pic_image/8f394036eae5b7aa8ba35ed7db42a94c/840/473/1863301/",
+    "title": "PS5",
+    "description" : "Lightning-fast download speeds with super-fast SSD storage, incredible immersion with tactile feedback, adaptive release buttons and 3D sound, and stunning next-generation PlayStation:registered: games."
+  },
+  {
+    "id": "15",
+    "image": "https://htstatic.imgsmail.ru/pic_image/85d569f43839910633164d1b600885dc/840/472/1901047/",
+    "title": "Xbox X series",
+    "description": "With the release of the next generation of Xbox Series X consoles, we will be able to enjoy exciting new games driven by hardware and software innovations."
+  }
+]
 }
