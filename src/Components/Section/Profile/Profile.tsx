@@ -1,28 +1,26 @@
-import React, { Component } from 'react'
+import React, { useContext, useRef } from 'react';
+import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import {UserContext} from "../../../Contexts/UserContext";
-import { User } from '../../../Interface/Interface'
+import { User } from '../../../Interface/Interface';
+import style from '../../css/Section.module.css'
 
 
 
-class Profile extends Component{
-    
-    static contextType = UserContext
-    name = React.createRef<HTMLInputElement>()
-    pass = React.createRef<HTMLInputElement>()
-    
-    
-    render() {
-        const {isUser,editUser} = this.context
-        let user: User = isUser()
-        console.log(this.context.idAuth)
+function Profile() {
+    const context = useContext(UserContext)
+    const name = useRef<HTMLInputElement>(null);
+    const pass = useRef<HTMLInputElement>(null);
+    const logged = useSelector((state: any) => state.isLogged);
+        let user: User = context.isUser()
+        console.log(context.idAuth)
         user.password=''
-        let pass: string=''
-        let name: string=''
+        let password: string=''
+        let username: string=''
         
         const checkUser = () => {
             console.log(user)
-            const check = editUser(user,pass,name)
+            const check = context.editUser(user,password,username)
             if(check){
                 alert('Your data changed')
             } 
@@ -30,32 +28,32 @@ class Profile extends Component{
                 alert('You entered wrong data')
             }
         }
-        if(user.name===''){
+        if(!logged){
             return <Redirect to='/login'/>
         }
         return (
             <>{
             user.id===0 ?
             <h2>Welcome Admin</h2> :
-            <div className="auth-form">
-                <form>
-                    <div className="form-group">
+            <div className={style.authForm}>
+            <form>
+                <div className={style.formGroup}>
                         <span>Change your Profile details</span><br/>
                         <label htmlFor="inputEmail">Your name: {user.name} </label>
                         <input
-                            ref={this.name}
+                            ref={name}
                             type="text"
                             className="form-control"
                             id="inputEmail"
                             onChange={(e) => {
-                                name = e.target.value
+                                username = e.target.value
                             }}
                             placeholder="Type your email"
                             required
                         />
                         <label htmlFor="inputPassword">Your password:</label>
                         <input
-                            ref={this.pass}
+                            ref={pass}
                             type="text"
                             className="form-control"
                             id="inputPassword"
@@ -67,26 +65,24 @@ class Profile extends Component{
                         />
                         <label htmlFor="newPassword">New password:</label>
                         <input
-                            ref={this.pass}
+                            ref={pass}
                             type="text"
                             className="form-control"
                             id="newPassword"
                             onChange={(e) => {
-                                pass = e.target.value
+                                password = e.target.value
                             }}
                             placeholder="Type new password"
                             required
                         />
-
                     </div>
                     <button onClick={checkUser} type="submit" className="btn btn-primary">Submit</button>
-                    
                 </form>
             </div>
             }
             </>
         )
-    }
+    
 }
 
 export default Profile

@@ -3,6 +3,9 @@ import { User } from '../../../Interface/Interface'
 import {Link, Redirect} from "react-router-dom";
 import {UserContext} from "../../../Contexts/UserContext";
 import {emailRex,passRex} from '../../../Data/initialDATA'
+import { useDispatch, useSelector } from 'react-redux';
+import { Logged } from '../../../Enums/Logged';
+import style from '../../css/Section.module.css'
 
 function Login() {
     const context = useContext(UserContext)
@@ -10,6 +13,8 @@ function Login() {
     const [state,setState] = useState(false)
     const email = useRef<HTMLInputElement>(null);
     const pass = useRef<HTMLInputElement>(null);
+    const logged = useSelector((state: any) => state.isLogged);
+    const dispatch = useDispatch();
     
     useEffect(() => {
         email.current?.focus();
@@ -32,7 +37,11 @@ function Login() {
             pass.current!.focus();
         }
         else {
-            setState(()=>context.loginUser(user))
+            //setState(()=>context.loginUser(user))
+            if(context.loginUser(user)){
+                dispatch({ type: Logged.SIGN_IN })
+                setState(true)
+            }
             email.current!.value = '';
             pass.current!.value = '';
         }
@@ -41,14 +50,13 @@ function Login() {
     if(state){
         return (<Redirect to='/'/>)
     }
-    if(context.idAuth!==-1){
-        context.logout();
-        return (<Redirect to='/'/>)
+    if(logged){
+        dispatch({type: Logged.SIGN_OUT})
     }
     return (
-    <div className="auth-form">
-    <form>
-        <div className="form-group">
+    <div className={style.authForm}>
+        <form>
+            <div className={style.formGroup}>
             <label htmlFor="inputEmail">Your email:</label>
             <input
                 ref={email}

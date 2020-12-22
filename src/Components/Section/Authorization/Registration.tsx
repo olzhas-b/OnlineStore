@@ -3,14 +3,20 @@ import { User } from '../../../Interface/Interface'
 import {UserContext} from "../../../Contexts/UserContext";
 import { Redirect } from 'react-router-dom';
 import {emailRex,passRex} from '../../../Data/initialDATA'
+import { useDispatch, useSelector } from 'react-redux';
+import { Logged } from '../../../Enums/Logged';
+import style from '../../css/Section.module.css'
 
 function Registration() {
     const context = useContext(UserContext)
     let user: User = { email: "", id: 0, password: "", name: "" };
-    const [state,setState] = useState(false)
+    //const [state,setState] = useState(false)
     const email = useRef<HTMLInputElement>(null);
     const pass = useRef<HTMLInputElement>(null);
     const name = useRef<HTMLInputElement>(null);
+    const logged = useSelector((state: any) => state.isLogged);
+    const dispatch = useDispatch();
+    
     useEffect(() => {
         name.current?.focus();
       }, []);
@@ -30,20 +36,21 @@ function Registration() {
         }
         else {
             context.addUser(user)
-            setState(()=>!state)
+            //setState(()=>!state)
+            dispatch({ type: Logged.SIGN_IN })
             email.current!.value = '';
             pass.current!.value = '';
 
         }
     }
-    if(state===true){
+    if(logged){
         return (<Redirect to='/'/>)
     }
     else{
     return (
-    <div className="auth-form">
+    <div className={style.authForm}>
     <form>
-        <div className="form-group">
+        <div className={style.formGroup}>
             <span>Registration</span><br/>
             <label htmlFor="inputName">Your name:</label>
             <input
