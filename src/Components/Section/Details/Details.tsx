@@ -22,7 +22,7 @@ export function Details({...props}) {
         setOutput({product: products.filter((item : PRODUCT) => (item._id === id))})
     },[])
     return (
-        <div className="app">
+       <React.Fragment>
             {
                 output.product.map((item: PRODUCT) => (
                         <div className={style.details} key={item._id}>
@@ -39,9 +39,9 @@ export function Details({...props}) {
                                 <h6 className={"text-info"}>DESCRIPTION:</h6>
                                 <p>{item.description}</p>
                                 <p>{item.content}</p>
-                                <div>
+                                <React.Fragment>
                                     <Wrapped />
-                                </div>
+                                </React.Fragment>
                                 <button className="btn btn-success" onClick={() => context.addBasket(item._id)}>Add to basket</button>
                                 <button className={"btn btn-warning"} onClick={() => context.addFavorite(item._id)}>Favorite</button>
                             </div>
@@ -51,7 +51,7 @@ export function Details({...props}) {
 
             <Comment />
 
-        </div>
+        </React.Fragment>
     )
 }
 

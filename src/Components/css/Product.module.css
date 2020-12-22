@@ -16,7 +16,7 @@
     margin-right: 20px;
     margin-top: 50px;
     transition: 0.3s linear;
-    background-color: black;
+    background-color: rgb(233, 233, 233);
 }
 .card:hover{
     box-shadow: none;
@@ -76,5 +76,8 @@ button {
     padding-left: 0px;
     padding-top: 0px;
     min-width: 200px;
+    text-align: center;
+}
+h2 {
     text-align: center;
 }

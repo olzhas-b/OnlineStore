@@ -2,6 +2,7 @@ import React, { lazy, ReactElement, useEffect, useState } from 'react'
 
 import style from '../../css/HomeList.module.css';
 import { Product as PRODUCT } from '../../../Interface/Interface'
+import ErrorBoundary from '../ErrorBoundary/ErrorBoundary';
 const Product = lazy(() => import('./Product'));
 interface Props {
     getItems: () => PRODUCT[];
@@ -20,9 +21,9 @@ export default function HomeList({ getItems }: Props): ReactElement {
                 <div className={style.product}>
                     {
                         items.map((product: PRODUCT, index: number) => (
-                            
+                            <ErrorBoundary>
                                 <Product product={product} key={index}/>
-                        
+                            </ErrorBoundary>
                         ))
                     }
                 </div>

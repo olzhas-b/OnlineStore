@@ -8,7 +8,10 @@ import {ThemeContext} from "../../../Contexts/ThemeContext";
 function Product({...props}) {
     const context = useContext(DataContext);
     const curContext = useContext(currencyContext);
-    const themeContext = useContext(ThemeContext)
+    const themeContext = useContext(ThemeContext);
+    if (props.product.src === '' || props.product.description === '' || props.product.title === '') {
+        throw new Error('Data is unavailable');
+    }
     return (
         <div className={style.card} key={props.product._id} style={themeContext.isLightTheme ? themeContext.item_light : themeContext.item_dark}>
             <Link to={`/product/${props.product._id}`}>

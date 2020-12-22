@@ -12,7 +12,7 @@ import CurrencyContextProvider from './Contexts/CurrencyContext';
 class App extends Component{
     render() {
       return (
-        <div className={"app"}>
+        <React.Fragment>
             <ThemeContextProvider>
                <DataProvider>
                    <UserProvider>
@@ -28,7 +28,7 @@ class App extends Component{
                    </UserProvider>
                </DataProvider>
             </ThemeContextProvider>
-        </div>
+        </React.Fragment>
       )
     }
 }
