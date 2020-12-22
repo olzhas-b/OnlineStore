@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {CommentForm} from './CommentForm'
 import {CommentList} from '../CommentList/CommentList'
 import {ITodo} from '../../../Interface/Interface'
+import { useSelector } from 'react-redux'
+import { UserContext } from '../../../Contexts/UserContext'
 
-
+interface Props{
+  userEmail:string
+}
 declare var confirm: (question: string) => boolean
 
-export const Comment: React.FC = () => {
+export const Comment: React.FC<Props> = (props:Props) => {
   const [todos, setTodos] = useState<ITodo[]>([])
-
+  const context = useContext(UserContext)
+  const email = context.isUser().email
   useEffect(() => {
     const saved = JSON.parse(localStorage.getItem('todos') || '[]') as ITodo[]
     setTodos(saved)
@@ -22,7 +27,8 @@ export const Comment: React.FC = () => {
     const newTodo: ITodo = {
       title: title,
       id: Date.now(),
-      completed: false
+      completed: false,
+      userEmail: props.userEmail
     }
     setTodos(prev => [newTodo, ...prev])
   }
@@ -41,6 +47,7 @@ export const Comment: React.FC = () => {
       <CommentList
         todos={todos}
         onRemove={removeHandler}
+        isLogged = {email}
       />
     </React.Fragment>
   )

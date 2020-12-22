@@ -15,6 +15,7 @@ function Home() {
     const ref = useRef<HTMLInputElement>(null);
     const {products} = context;
     const [input, setInput] = useState<string>('');
+    const [search, setSearch] = useState<string>('');
     const getItems = useCallback(
         () => {
             let data: PRODUCT[] = [];
@@ -58,8 +59,10 @@ function Home() {
             <div>
                 <Slider/>
             </div>
+            
             <div className={style.Search}>
-                <input ref={ref} onKeyPress={(event) => handlePressKey(event)} className="form-control form-control-lg" type="text" placeholder="Search" style={themeContext.isLightTheme ? themeContext.item_light : themeContext.item_dark}/>
+            <p>Your search term: {search}</p>
+                <input ref={ref} onChange={(e)=>setSearch(e.target.value)} onKeyPress={(event) => handlePressKey(event)} className="form-control form-control-lg" type="text" placeholder="Search" style={themeContext.isLightTheme ? themeContext.item_light : themeContext.item_dark}/>
             </div>
             <HomeList getItems={getItems}/>
         </div>

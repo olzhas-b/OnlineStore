@@ -8,6 +8,7 @@ import {likeCountHOC} from './LikeCountHOC'
 import LikeArea from './LikeArea'
 import {currencyContext} from "../../../Contexts/CurrencyContext";
 import style from './Details.module.css';
+import { UserContext } from '../../../Contexts/UserContext';
 
 const Wrapped = likeCountHOC()(LikeArea);
 
@@ -17,6 +18,8 @@ export function Details({...props}) {
     const location = useLocation();
     const {products} = useContext(DataContext);
     const [output, setOutput] = useState(detail);
+    const userContext = useContext(UserContext);
+    const userEmail = userContext.isUser().email;
     useEffect(() => {
         const id = location.pathname.split('/').pop()
         setOutput({product: products.filter((item : PRODUCT) => (item._id === id))})
@@ -49,7 +52,7 @@ export function Details({...props}) {
                 ))
             }
 
-            <Comment />
+            <Comment  userEmail={userEmail}/>
 
         </React.Fragment>
     )

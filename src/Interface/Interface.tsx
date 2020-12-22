@@ -125,7 +125,8 @@ export interface Currency {
 export interface ITodo {
     title: string,
     id: number,
-    completed: boolean
+    completed: boolean,
+    userEmail: string,
 }
 
 export interface Detail {

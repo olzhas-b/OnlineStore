@@ -10,4 +10,9 @@ section {
 .formGroup{
     text-align: left;
 }
-
+.payment{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}

@@ -17,6 +17,7 @@ const Home = lazy(() => import('./Section/Home/Home'));
 const Basket = lazy(() => import('./Section/Basket/Basket'));
 const Sale = lazy(() => import('./Section/Sale/Sale'));
 const About = lazy(() => import('./Section/About/About'));
+const Payment = lazy(() => import('./Section/Payment/Payment'))
 
 function Section() {
     const themeContext = useContext(ThemeContext);
@@ -35,6 +36,7 @@ function Section() {
                     <Route path="/profile" exact component={Profile}/>
                     <Route path="/about" exact component={About} />
                     <Route path="/sale" exact component={Sale} />
+                    <Route path="/payment" exact component={Payment}/>
                 </section>
             </Suspense>
         </div>
