@@ -1,12 +1,12 @@
 import React, {useContext, Suspense, lazy} from 'react';
 import {Route} from "react-router-dom";
-import About from "./Section/About/About";
 import {ThemeContext} from "../Contexts/ThemeContext";
-import './css/Section.css'
-import Sale from './Section/Sale/Sale'
-import Favorite from "./Section/Favorite/Favorite";
+import './css/Section.module.css'
+// import About from "./Section/About/About";
+// import Sale from './Section/Sale/Sale'
+// import Favorite from "./Section/Favorite/Favorite";
 // import Product from "./Section/Home/Product";
-// const Favorite = lazy(() => import('./Section/Favorite/Favorite'));
+const Favorite = lazy(() => import('./Section/Favorite/Favorite'));
 const Registration = lazy(() => import('./Section/Authorization/Registration'));
 const Contacts = lazy(() => import('./Section/Contacts/Contacts'));
 const Profile = lazy(() => import('./Section/Profile/Profile'));
@@ -15,8 +15,8 @@ const Details = lazy(() => import('./Section/Details/Details'));
 const Product = lazy(() => import('./Section/Home/Product'));
 const Home = lazy(() => import('./Section/Home/Home'));
 const Basket = lazy(() => import('./Section/Basket/Basket'));
-// const Sale = lazy(() => import('./Section/Sale/Sale'));
-// const About = lazy(() => import('./Section/About/About'));
+const Sale = lazy(() => import('./Section/Sale/Sale'));
+const About = lazy(() => import('./Section/About/About'));
 
 function Section() {
     const themeContext = useContext(ThemeContext);
@@ -33,8 +33,8 @@ function Section() {
                     <Route path="/registration" exact component={Registration} />
                     <Route path="/contact" exact component={Contacts} />
                     <Route path="/profile" exact component={Profile}/>
-                    <Route path="/about" component={About} />
-                    <Route path="/sale" component={Sale} />
+                    <Route path="/about" exact component={About} />
+                    <Route path="/sale" exact component={Sale} />
                 </section>
             </Suspense>
         </div>

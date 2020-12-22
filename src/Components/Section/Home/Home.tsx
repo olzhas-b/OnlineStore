@@ -1,8 +1,8 @@
-import React, {lazy, Suspense, useCallback} from 'react';
+import React, {useCallback} from 'react';
 import {DataContext} from "../../../Contexts/Context";
 import {Product as PRODUCT} from "../../../Interface/Interface";
 import Slider from "./Slider";
-import '../../css/Main.css'
+import style from '../../css/Home.module.css'
 import {useContext, useRef, useState} from "react";
 import {ThemeContext} from "../../../Contexts/ThemeContext";
 import HomeList from './HomeList';
@@ -54,12 +54,11 @@ function Home() {
         }
     }
     return (
-        <div className={"Home"}>
-            
-            <div className={"Slider"}>
+        <div>
+            <div>
                 <Slider/>
             </div>
-            <div className={"Search"}>
+            <div className={style.Search}>
                 <input ref={ref} onKeyPress={(event) => handlePressKey(event)} className="form-control form-control-lg" type="text" placeholder="Search" style={themeContext.isLightTheme ? themeContext.item_light : themeContext.item_dark}/>
             </div>
             <HomeList getItems={getItems}/>

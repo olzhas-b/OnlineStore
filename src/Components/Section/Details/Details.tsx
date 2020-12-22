@@ -7,7 +7,7 @@ import {detail} from '../../../Data/initialDATA'
 import {likeCountHOC} from './LikeCountHOC'
 import LikeArea from './LikeArea'
 import {currencyContext} from "../../../Contexts/CurrencyContext";
-
+import style from './Details.module.css';
 
 const Wrapped = likeCountHOC()(LikeArea);
 
@@ -25,17 +25,18 @@ export function Details({...props}) {
         <div className="app">
             {
                 output.product.map((item: PRODUCT) => (
-                        <div className="details" key={item._id}>
+                        <div className={style.details} key={item._id}>
                             <div className="big-img item-photo">
                                 <img src={item.src}  alt="good"/>
                             </div>
-                            <div className="box">
-                                <div className="row">
+                            <div className={style.box}>
+                                <div className={style.row}>
                                     <h2>{item.title}</h2>
                                 </div>
-                                <h6 className="title-price text-info">CURRENT PRICE:</h6>
-                                <span className="price">{!currContext.isUSD ? currContext.tg.symbol : currContext.usd.symbol}{!currContext.isUSD ? item.price * 420: item.price}</span>
-                                <h6 className="mt-3 text-info">DESCRIPTION:</h6>
+
+                                <h6 className={style.title_price}>CURRENT PRICE:</h6>
+                                <span className={"title-price text-info"}>{!currContext.isUSD ? currContext.tg.symbol : currContext.usd.symbol}{!currContext.isUSD ? item.price * 420: item.price}</span>
+                                <h6 className={"text-info"}>DESCRIPTION:</h6>
                                 <p>{item.description}</p>
                                 <p>{item.content}</p>
                                 <div>

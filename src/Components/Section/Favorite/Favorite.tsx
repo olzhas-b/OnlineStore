@@ -1,8 +1,8 @@
-import React, {lazy, useContext} from 'react'
+import React, {useContext} from 'react'
 import {DataContext} from '../../../Contexts/Context'
 import {Product} from "../../../Interface/Interface";
 import Item from './Item'
-import '../../css/Basket.css'
+import style from '../../css/Basket.module.css'
 import {ThemeContext} from "../../../Contexts/ThemeContext";
 // const Item = lazy(() => import('./Item'));
 function Favorite() {
@@ -15,7 +15,7 @@ function Favorite() {
         return (
 
             <div className={"top"}>
-                <div className={"space"}>
+                <div className={style.space}>
                     {
                         favorite.map( (item: Product) =>(<Item item={item}/>))
                     }

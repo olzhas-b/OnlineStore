@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import './Sale.css'
+import style from './Sale.module.css'
 import axios from '../../../Axios/localhost';
+
 function Sale() {
     const [data, setData] = useState<any[]>([]);
     useEffect(() => {
@@ -14,14 +15,14 @@ function Sale() {
         <div>
             {
                 data.map(item =>
-                    <div className="sections">
-                        <div className="section">
-                            <img src={item.image} className="image"/>
-                            <div className="content">
-                                <h2 className="title">
+                    <div className={style.sections}>
+                        <div className={style.section}>
+                            <img src={item.image} className={style.image}/>
+                            <div className={style.contents}>
+                                <h2 className={style.title}>
                                     {item.title}
                                 </h2>
-                                <p className="paragraph">
+                                <p className={style.paragraph}>
                                     {item.description}
                                 </p>
                             </div>

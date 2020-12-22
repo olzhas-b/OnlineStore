@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import './css/Header.css'
+import style from './css/Header.module.css'
 import {DataContext} from "../Contexts/Context";
 import {Link} from "react-router-dom";
 import basketIcon from "./svg/basketIcon.svg";
@@ -16,15 +16,15 @@ function Header() {
     const curContext = useContext(currencyContext)
 
     return(
-        <header className={"header"} style={themeContext.isLightTheme ? themeContext.header_light : themeContext.header_dark}>
-            <div className={"logo"}>
+        <header className={style.header} style={themeContext.isLightTheme ? themeContext.header_light : themeContext.header_dark}>
+            <div className={style.logo}>
                 <h1><Link to="/">TopStore</Link></h1>
             </div>
-            <nav className={"header-right"}>
+            <nav className={style.header_right}>
                 <ul>
-                    {/*<li><button className={"toggle_currency"} onClick={curContext.changeCurrency}>{curContext.isUSD ? 'Tenge' : 'USD'}</button></li>*/}
-                    {/*<li><button className={"toggle_language"} onClick={lanContext.changeLanguage}>{lanContext.isEN ? 'RU' : 'EN'}</button></li>*/}
-                    <li className={"toggle_theme"} onMouseDown={themeContext.changeTheme}>
+                    <li><button className={style.toggle_language} onClick={curContext.changeCurrency}>{curContext.isUSD ? 'Tenge' : 'USD'}</button></li>
+                    <li><button className={style.toggle_language} onClick={lanContext.changeLanguage}>{lanContext.isEN ? 'RU' : 'EN'}</button></li>
+                    <li className={style.toggle_theme} onMouseDown={themeContext.changeTheme}>
                         <Toggle/>
                     </li>
                     <li><Link to="/">{lanContext.isEN ? lanContext.en.home : lanContext.ru.home}</Link></li>
@@ -35,8 +35,8 @@ function Header() {
                     <li><Link to="/login">{lanContext.isEN ? lanContext.en.log_reg : lanContext.ru.log_reg}</Link></li>
                     <li><Link to="/Profile">{lanContext.isEN ? lanContext.en.profile : lanContext.ru.profile}</Link></li>
                     <li>
-                        <div className={"nav-cart"}>
-                            <span className={"count_basket"}>{basket.length}</span>
+                        <div >
+                            <span className={style.count_basket}>{basket.length}</span>
                             <Link to="/basket"><img src={basketIcon} alt="" width="20"/></Link>
                         </div>
                     </li>

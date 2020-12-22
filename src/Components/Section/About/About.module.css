@@ -21,10 +21,11 @@ body {
   .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin: 8px;
+
     max-width: 350px;
   }
   
-  .about-section {
+  .about_section {
     padding: 50px;
     text-align: center;
     background-color: #474e5d;
@@ -63,7 +64,10 @@ body {
   .button:hover {
     background-color: #555;
   }
-  
+  .fixImage {
+    max-width: 350px;
+    max-height: 300px;
+  }
   @media screen and (max-width: 650px) {
     .column {
       width: 100%;

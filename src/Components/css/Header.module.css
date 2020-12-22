@@ -8,6 +8,7 @@ header {
     padding: 10px 10px;
 }
 .toggle_language {
+    margin: 0;
     max-width: 80px;
 }
 
@@ -45,7 +46,7 @@ header {
     color: white;
 }
 
-.header-right {
+.header_right {
     float: right;
 }
 

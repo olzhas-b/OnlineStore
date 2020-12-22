@@ -4,6 +4,7 @@ section .basket{
     position: relative;
     padding-left: 10px;
     margin: 0px 150px 20px 150px;
+    padding-top: 10px;
     border: 3px solid #555555;
     box-shadow: 2px 8px 20px #ddd;
     border-radius: 20px;
@@ -53,7 +54,7 @@ section .basket{
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 50px 0;
+    margin: 100px 0;
 }
 .details img{
     max-width: 500px;
@@ -105,13 +106,13 @@ section .basket{
 }
 
 /* Bottom right text */
-.text-block {
+.text_block {
     position: absolute;
     font-weight: bold;
     font-size: 20px;
     border-radius: 10px;
-    top: 0px;
-    left: 0px;
+    top: 30px;
+    left: 30px;
     background-color: red;
     color: white;
     padding-left: 0px;

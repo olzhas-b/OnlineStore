@@ -1,0 +1,15 @@
+.dontfind {
+    padding-top: 50px;
+    font-size: 50px;
+    text-align: center;
+}
+.items {
+    margin:50px;
+    margin-top: 50px
+}
+.product{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

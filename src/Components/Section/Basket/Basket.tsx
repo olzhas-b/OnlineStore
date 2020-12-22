@@ -2,12 +2,12 @@ import React, {lazy, useContext, useEffect, useMemo, useState} from 'react'
 import {DataContext} from '../../../Contexts/Context'
 import {Link} from 'react-router-dom'
 import {Basket as BASKET, Product} from "../../../Interface/Interface";
-import '../../css/Basket.css'
-import {ThemeContext} from "../../../Contexts/ThemeContext";
+import style from '../../css/Basket.module.css'
+import {currencyContext} from "../../../Contexts/CurrencyContext";
 const Item = lazy(() => import('./Item'));
 function Basket() {
-    const themeContext = useContext(ThemeContext);
     const context = useContext(DataContext);
+    const curContext = useContext(currencyContext);
     const {basket} = context;
     function computeTotal() {
         var val = 0;
@@ -27,8 +27,8 @@ function Basket() {
                         ))
                     }
                 </div>
-                <div className="total">
-                    <h3>Total: ${total}</h3>
+                <div className={style.total}>
+                    <h3>Total: {!curContext.isUSD ? curContext.tg.symbol : curContext.usd.symbol}{!curContext.isUSD ? total * 420 : total}</h3>
                     <Link to="/payment" className={"btn btn-danger"}>Payment</Link>
                 </div>
             </div>

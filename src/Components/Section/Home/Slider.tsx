@@ -1,13 +1,11 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import AliceCarousel from 'react-alice-carousel';
 import "react-alice-carousel/lib/alice-carousel.css"
-import '../../css/Main.css'
 import {Link} from "react-router-dom";
-
+import '../../css/Slider.css'
 function Slider() {
     useEffect(()=>{
         return () => {
-            
         } 
     }, []
     )
